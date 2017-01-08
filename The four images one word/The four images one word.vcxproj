@@ -72,6 +72,10 @@
     <IncludePath>C:\SDL2 Libraries\SDL2_image-2.0.1\include;C:\SDL2 Libraries\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\SDL2 Libraries\SDL2_image-2.0.1\lib\x86;C:\SDL2 Libraries\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\SDL2 Libraries\SDL2_image-2.0.1\include;C:\SDL2 Libraries\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL2 Libraries\SDL2_image-2.0.1\lib\x86;C:\SDL2 Libraries\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -89,6 +93,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2_main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -120,9 +128,11 @@
     <ClInclude Include="AnimatedGraphic.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjectFactory.h" />
-    <ClInclude Include="GameOverState.h" />
+    <ClInclude Include="ProgressParser.h" />
+    <ClInclude Include="WinState.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="Letter.h" />
     <ClInclude Include="LoaderParams.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="MenuButton.h" />
@@ -138,13 +148,16 @@
     <ClInclude Include="tinystr.h" />
     <ClInclude Include="tinyxml.h" />
     <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedGraphic.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
-    <ClCompile Include="GameOverState.cpp" />
+    <ClCompile Include="ProgressParser.cpp" />
+    <ClCompile Include="WinState.cpp" />
     <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="Letter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="MenuButton.cpp" />
@@ -160,6 +173,7 @@
     <ClCompile Include="tinyxml.cpp" />
     <ClCompile Include="tinyxmlerror.cpp" />
     <ClCompile Include="tinyxmlparser.cpp" />
+    <ClCompile Include="Word.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

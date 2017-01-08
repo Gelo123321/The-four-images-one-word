@@ -1,12 +1,12 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#include "GameOverState.h"
+#include "WinState.h"
 #include "Game.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const std::string GameOverState::s_gameOverID = "GAMEOVER";
+const std::string WinState::s_winID = "WIN";
 
-void GameOverState::update()
+void WinState::update()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
@@ -14,7 +14,7 @@ void GameOverState::update()
 	}
 }
 
-void GameOverState::render()
+void WinState::render()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
@@ -22,24 +22,26 @@ void GameOverState::render()
 	}
 }
 
-bool GameOverState::onEnter()
+bool WinState::onEnter()
 {
- 
 	// parse the state
 	StateParser stateParser;
-	stateParser.parseState("test.xml", s_gameOverID, &m_gameObjects,   &m_textureIDList);
+	stateParser.parseState("states.xml", s_winID, &m_gameObjects, &m_textureIDList);
 
 	m_callbacks.push_back(0);
-	m_callbacks.push_back(s_gameOverToMain);
-	m_callbacks.push_back(s_restartPlay);
+	m_callbacks.push_back(s_winToMain);
+	m_callbacks.push_back(s_nextLevel);
 
 	// set the callbacks for menu items
 	setCallbacks(m_callbacks);
 
-	std::cout << "entering PauseState\n";  return true;
+	int i = ThePlayer::Instance()->getProgress("none") + 1;
+	ThePlayer::Instance()->setProgress("none", i);
+
+	std::cout << "entering WinState\n";  return true;
 }
 
-bool GameOverState::onExit()
+bool WinState::onExit()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
@@ -47,14 +49,20 @@ bool GameOverState::onExit()
 	}
 
 	m_gameObjects.clear();
-	TheTextureManager::Instance()->clearFromTextureMap("mainbutton");
-	TheTextureManager::Instance()->clearFromTextureMap("resumebutton");
 
-	std::cout << "exiting GameOverState\n";
+	// clear the texture manager
+	for (int i = 0; i < m_textureIDList.size(); i++)
+	{
+		TheTextureManager::Instance()->clearFromTextureMap(m_textureIDList[i]);
+	}
+
+	TheWord::Instance()->clearWords();
+
+	std::cout << "exiting WinState\n";
 	return true;
 }
 
-void GameOverState::setCallbacks(const std::vector<Callback>& callbacks)
+void WinState::setCallbacks(const std::vector<Callback>& callbacks)
 {
 	// go through the game objects
 	if (!m_gameObjects.empty())
@@ -71,12 +79,12 @@ void GameOverState::setCallbacks(const std::vector<Callback>& callbacks)
 	}
 }
 
-void GameOverState::s_gameOverToMain()
+void WinState::s_winToMain()
 {
 	TheGame::Instance()->getStateManager()->changeState(new MainMenuState());
 }
 
-void GameOverState::s_restartPlay()
+void WinState::s_nextLevel()
 {
 	TheGame::Instance()->getStateManager()->changeState(new PlayState());
 }

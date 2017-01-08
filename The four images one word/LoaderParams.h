@@ -12,7 +12,7 @@ class LoaderParams
 {
 public:
 
-	LoaderParams(int x, int y, int width, int height, std::string textureID, int numFrames, int callbackID = 0 , int animSpeed = 0) :
+	LoaderParams(int x, int y, int width, int height, std::string textureID, int numFrames, int callbackID = 0 , int animSpeed = 0, std::string word = "") :
 		m_x(x),
 		m_y(y),
 		m_width(width),
@@ -20,7 +20,8 @@ public:
 		m_textureID(textureID),
 		m_numFrames(numFrames),
 		m_callbackID(callbackID),
-		m_animSpeed(animSpeed)
+		m_animSpeed(animSpeed),
+		m_word(word)
 	{
 
 	}
@@ -33,6 +34,7 @@ public:
 	int getNumFrames() const { return m_numFrames; }
 	int getCallbackID() const { return m_callbackID; }
 	int getAnimSpeed() const { return m_animSpeed; }
+	std::string getWord() const { return m_word; }
 
 private:
 
@@ -48,6 +50,8 @@ private:
 	std::string m_textureID;
 
 	int m_numFrames;
+
+	std::string m_word;
 };
 #endif
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

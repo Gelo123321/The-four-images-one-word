@@ -1,49 +1,51 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef LETTER_H
+#define LETTER_H
 
 #include <iostream>
+#include <string>
 #include "SDL.h"
 #include "SDLGameObject.h"
+#include "LoaderParams.h"
 #include "InputHandler.h"
 #include "GameObjectFactory.h"
+#include "Word.h"
+#include <vector>
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class Player : public SDLGameObject
+class Letter : public SDLGameObject
 {
 public:
-	static Player* Instance()
-	{
-		if (s_pInstance == 0)
-		{
-			s_pInstance = new Player();
-			return s_pInstance;
-		}
+	Letter();
 
-		return s_pInstance;
-	}
-
-	void setProgress(std::string, int);
-	int getProgress(std::string);
-	
-	void load(const LoaderParams *pParams);
+	void Letter::load(const LoaderParams *pParams);
 
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
+	
 private:
+	std::string m_letter;
 
-	Player() {};
-	~Player() {};
+	enum button_state
+	{
+		MOUSE_OUT = 0,
+		MOUSE_OVER = 1,
+		CLICKED = 2
+	};
 
-	std::map<std::string, int> m_categoryProgress;
-
-	static Player* s_pInstance;
+	bool m_bReleased;
 };
 
-typedef Player ThePlayer;
-
+// for the factory
+class LetterCreator : public BaseCreator
+{
+	GameObject* createGameObject() const
+	{
+		return new Letter();
+	}
+};
 #endif
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

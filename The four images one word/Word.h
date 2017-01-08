@@ -1,49 +1,55 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef WORD_H
+#define WORD_H
 
 #include <iostream>
+#include <string>
 #include "SDL.h"
 #include "SDLGameObject.h"
-#include "InputHandler.h"
-#include "GameObjectFactory.h"
+#include "Game.h"
+#include "LoaderParams.h"
+#include <vector>
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class Player : public SDLGameObject
+class Word : public SDLGameObject
 {
 public:
-	static Player* Instance()
+	static Word* Instance()
 	{
 		if (s_pInstance == 0)
 		{
-			s_pInstance = new Player();
+			s_pInstance = new Word();
 			return s_pInstance;
 		}
 
 		return s_pInstance;
 	}
 
-	void setProgress(std::string, int);
-	int getProgress(std::string);
-	
-	void load(const LoaderParams *pParams);
+	void Word::load(const LoaderParams *pParams);
 
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
+
+	void setLetter(std::string letter);
+	void setWord(std::string);
+
+	void clearWords();
+
 private:
 
-	Player() {};
-	~Player() {};
+	Word() {};
+	~Word() {};
 
-	std::map<std::string, int> m_categoryProgress;
+	static Word* s_pInstance;
 
-	static Player* s_pInstance;
+	std::string m_word;
+	std::string m_currentWord;
 };
 
-typedef Player ThePlayer;
+typedef Word TheWord;
 
 #endif
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

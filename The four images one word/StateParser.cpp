@@ -1,4 +1,4 @@
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+﻿//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #include "StateParser.h"
@@ -68,6 +68,22 @@ bool StateParser::parseState(const char *stateFile, string stateID, vector<GameO
 	// now parse the objects
 	parseObjects(pObjectRoot, pObjects);
 
+	TiXmlElement* pWordRoot = 0;
+
+	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
+	{
+		if (e->Value() == string("WORDS"))
+		{
+			pWordRoot = e;
+			break;
+		}
+	}
+
+	if (pWordRoot != 0)
+	{
+		parseWords(pWordRoot);
+	}
+
 	return true;
 }
 
@@ -101,10 +117,23 @@ void StateParser::parseObjects(TiXmlElement *pStateRoot, std::vector<GameObject 
 		e->Attribute("animSpeed", &animSpeed);
 
 		textureID = e->Attribute("textureID");
+
 		//int x, int y, int width, int height, std::string textureID, int numFrames, void()
 		GameObject* pGameObject = TheGameObjectFactory::Instance()->create(e->Attribute("type"));
 		pGameObject->load(new LoaderParams(x, y, width, height, textureID, numFrames, callbackID, animSpeed));
 		pObjects->push_back(pGameObject);
+	}
+}
+
+void StateParser::parseWords(TiXmlElement* pStateRoot) 
+{
+	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
+	{
+		string word;
+
+		word = e->Attribute("word");
+
+		TheWord::Instance()->setWord(word);
 	}
 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

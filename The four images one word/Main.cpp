@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 	Uint32 frameStart, frameTime;
 
 	std::cout << "TheGame init attempt...\n";
+
 	if (TheGame::Instance()->init("The four images one word", 100, 100, 480, 640, false))
 	{
 		std::cout << "TheGame init success!\n";

@@ -12,17 +12,31 @@ void PlayState::update()
 	{
 		TheGame::Instance()->getStateManager()->pushState(new PauseState);
 	}
+
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->update();
+	}
+
+	TheWord::Instance()->update();
 }
 
 void PlayState::render()
 {
-	
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->draw();
+	}
+
+	TheWord::Instance()->draw();
 }
 
 bool PlayState::onEnter()
 {
 	// parse the lavel  
-	
+	StateParser levelParser;
+	std::string ID = "lvl" + to_string(ThePlayer::Instance()->getProgress("none"));
+	levelParser.parseState("resources\\category\\none.xml", ID, &m_gameObjects, &m_textureIDList);
 
 	std::cout << "entering PlayState\n"; 
 	return true;
@@ -44,31 +58,6 @@ bool PlayState::onExit()
 	}
 
 	std::cout << "exiting PlayState\n";
-	return true;
-}
-
-bool PlayState::checkCollision(SDLGameObject * p1, SDLGameObject * p2)
-{
-	int leftA, leftB;
-	int rightA, rightB;
-	int topA, topB;
-	int bottomA, bottomB;
-
-	leftA = p1->getPosition().getX();
-	rightA = p1->getPosition().getX() + p1->getWidth();
-	topA = p1->getPosition().getY();
-	bottomA = p1->getPosition().getY() + p1->getHeight();
-
-	leftB = p2->getPosition().getX();
-	rightB = p2->getPosition().getX() + p2->getWidth();
-	topB = p2->getPosition().getY();
-	bottomB = p2->getPosition().getY() + p2->getHeight();
-
-	if (bottomA <= topB) { return false; }
-	if (topA >= bottomB) { return false; }
-	if (rightA <= leftB) { return false; }
-	if (leftA >= rightB) { return false; }
-
 	return true;
 }
 

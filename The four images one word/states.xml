@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<States1>
+    <MENU>
+        <TEXTURES>
+            <texture filename="resources/img/play.png" ID="playbutton"/>
+            <texture filename="resources/img/options.png" ID="optionsbutton"/>
+            <texture filename="resources/img/exit.png" ID="exitbutton"/>
+        </TEXTURES>
+        
+        <OBJECTS>
+            <object type="MenuButton" x="176" y="256" width="128" height="32" textureID="playbutton" numFrames="0" callbackID="1"/>
+            <object type="MenuButton" x="176" y="304" width="128" height="32" textureID="optionsbutton" numFrames="0" callbackID="2"/>
+            <object type="MenuButton" x="176" y="352" width="128" height="32" textureID="exitbutton" numFrames="0" callbackID="3"/>
+        </OBJECTS>
+    </MENU>
+
+    <OPTIONS>
+        <TEXTURES>
+            <texture filename="resources/img/main.png" ID="mainbutton"/>
+        </TEXTURES>
+        
+        <OBJECTS>
+            <object type="MenuButton" x="176" y="304" width="128" height="32" textureID="mainbutton" numFrames="0" callbackID="1"/>
+        </OBJECTS>
+    </OPTIONS>
+    
+    <PAUSE>
+        <TEXTURES>
+            <texture filename="resources/img/resume.png" ID="resumebutton"/>
+            <texture filename="resources/img/main.png" ID="mainbutton"/>
+        </TEXTURES>
+        
+        <OBJECTS>
+            <object type="MenuButton" x="176" y="280" width="128" height="32" textureID="mainbutton" numFrames="0" callbackID="1"/>
+            <object type="MenuButton" x="176" y="328" width="128" height="32" textureID="resumebutton" numFrames="0" callbackID="2"/>
+        </OBJECTS>
+    </PAUSE>
+
+    <WIN>
+        <TEXTURES>
+            <texture filename="resources/img/victory.png" ID="victorytext"/>
+            <texture filename="resources/img/main.png" ID="mainbutton"/>
+            <texture filename="resources/img/next.png" ID="nextbutton"/>
+        </TEXTURES>
+        
+        <OBJECTS>
+            <object type="AnimatedGraphic" x="176" y="256" width="128" height="32" textureID="victorytext" numFrames="3" animSpeed="3"/>
+            <object type="MenuButton" x="176" y="304" width="128" height="32" textureID="mainbutton" numFrames="0" callbackID="1"/>
+            <object type="MenuButton" x="176" y="352" width="128" height="32" textureID="nextbutton" numFrames="0" callbackID="2"/>
+        </OBJECTS>
+    </WIN>
+</States1>

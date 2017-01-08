@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<States>
+  
+  <lvl0>
+    
+    <TEXTURES>
+      <texture filename="resources/category/none/0.png" ID="img0"/>
+      <texture filename="resources/category/none/1.png" ID="img1"/>
+      <texture filename="resources/category/none/2.png" ID="img2"/>
+      <texture filename="resources/category/none/3.png" ID="img3"/>
+    
+      <texture filename="resources/img/letters/А.png" ID="А"/>
+      <texture filename="resources/img/letters/0.png" ID="0"/>
+    </TEXTURES>
+
+    <OBJECTS>
+      <object type="AnimatedGraphic" x="96" y="176" width="128" height="128" textureID="img0" numFrames="1" animSpeed="1"/>
+      <object type="AnimatedGraphic" x="256" y="176" width="128" height="128" textureID="img1" numFrames="1" animSpeed="1"/>
+      <object type="AnimatedGraphic" x="96" y="336" width="128" height="128" textureID="img2" numFrames="1" animSpeed="1"/>
+      <object type="AnimatedGraphic" x="256" y="336" width="128" height="128" textureID="img3" numFrames="1" animSpeed="1"/>
+    
+      <object type="Letter" x="84" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="124" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="164" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="204" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="244" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="284" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="324" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="364" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+    
+      <object type="Letter" x="84" y="536" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="124" y="536" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="164" y="536" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="204" y="536" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="244" y="536" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="284" y="536" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="324" y="536" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="364" y="536" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+
+    </OBJECTS>
+
+    <WORDS>
+    	<word type="Word" word="ААААА"/>
+    </WORDS>	
+
+  </lvl0>
+
+  <lvl1>
+    
+    <TEXTURES>
+      <texture filename="resources/category/none/0.png" ID="img0"/>
+      <texture filename="resources/category/none/1.png" ID="img1"/>
+      <texture filename="resources/category/none/2.png" ID="img2"/>
+      <texture filename="resources/category/none/3.png" ID="img3"/>
+    
+      <texture filename="resources/img/letters/А.png" ID="А"/>
+      <texture filename="resources/img/letters/0.png" ID="0"/>
+    </TEXTURES>
+
+    <OBJECTS>
+      <object type="AnimatedGraphic" x="96" y="176" width="128" height="128" textureID="img0" numFrames="1" animSpeed="1"/>
+      <object type="AnimatedGraphic" x="256" y="176" width="128" height="128" textureID="img1" numFrames="1" animSpeed="1"/>
+      <object type="AnimatedGraphic" x="96" y="336" width="128" height="128" textureID="img2" numFrames="1" animSpeed="1"/>
+      <object type="AnimatedGraphic" x="256" y="336" width="128" height="128" textureID="img3" numFrames="1" animSpeed="1"/>
+    
+      <object type="Letter" x="84" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="124" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="164" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="204" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="244" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="284" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="324" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="364" y="496" width="32" height="32" textureID="А" numFrames="0" callbackID="1"/>
+    
+      <object type="Letter" x="84" y="536" width="32" height="32" textureID="0" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="124" y="536" width="32" height="32" textureID="0" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="164" y="536" width="32" height="32" textureID="0" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="204" y="536" width="32" height="32" textureID="0" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="244" y="536" width="32" height="32" textureID="0" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="284" y="536" width="32" height="32" textureID="0" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="324" y="536" width="32" height="32" textureID="0" numFrames="0" callbackID="1"/>
+      <object type="Letter" x="364" y="536" width="32" height="32" textureID="0" numFrames="0" callbackID="1"/>
+
+    </OBJECTS>
+
+    <WORDS>
+    	<word type="Word" word="ААААА"/>
+    </WORDS>	
+
+  </lvl1>
+  
+</States>

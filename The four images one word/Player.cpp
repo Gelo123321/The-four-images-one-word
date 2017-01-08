@@ -3,11 +3,8 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #include "Player.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Player* Player::s_pInstance = 0;
 
-Player::Player() : SDLGameObject()
-{
-	
-}
 
 void Player::load(const LoaderParams * pParams)
 {
@@ -21,14 +18,7 @@ void Player::draw()
 
 void Player::update()
 {
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 5));
 
-	m_velocity.setX(0);
-	m_velocity.setY(0);
-
-	handleInput();
-
-	SDLGameObject::update();
 }
 
 void Player::clean()
@@ -36,13 +26,19 @@ void Player::clean()
 
 }
 
-void Player::handleInput()
+void Player::setProgress(std::string key, int value)
 {
-	Vector2D *target = TheInputHandler::Instance()->getMousePosition();
+	m_categoryProgress[key] = value;
+}
 
-	m_velocity = *target - m_position;
+int Player::getProgress(std::string key)
+{
+	if (!m_categoryProgress[key])
+	{
+		return 0;
+	}
 
-	m_velocity /= 50;
+	return m_categoryProgress[key];
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

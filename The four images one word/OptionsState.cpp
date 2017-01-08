@@ -25,7 +25,7 @@ void OptionsState::render()
 bool OptionsState::onEnter()
 {
 	StateParser stateParser;
-	stateParser.parseState("test.xml", s_optionsID, &m_gameObjects, &m_textureIDList);
+	stateParser.parseState("states.xml", s_optionsID, &m_gameObjects, &m_textureIDList);
 
 	m_callbacks.push_back(0);
 	m_callbacks.push_back(s_optionsToMain);

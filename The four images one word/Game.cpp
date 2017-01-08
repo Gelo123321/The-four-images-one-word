@@ -83,8 +83,16 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, b
 	}
 
 	TheGameObjectFactory::Instance()->registerType("MenuButton", new MenuButtonCreator());
-	TheGameObjectFactory::Instance()->registerType("Player", new  PlayerCreator());
 	TheGameObjectFactory::Instance()->registerType("AnimatedGraphic", new AnimatedGraphicCreator());
+	TheGameObjectFactory::Instance()->registerType("Letter", new LetterCreator());
+
+	// load save
+	if (!progressParser.parseProgress("progress.xml"))
+	{
+		cout << "save data init fail\n";
+		return false; // save data init fail
+	}
+	
 
 	m_pStateManager = new StateManager();
 	m_pStateManager->changeState(new MainMenuState());
@@ -120,6 +128,8 @@ void Game::clean()
 	cout << "cleaning game\n";
 
 	TheInputHandler::Instance()->clean();
+
+	progressParser.saveProgress("progress.xml");
 
 	SDL_DestroyWindow(m_pWindow);
 	SDL_DestroyRenderer(m_pRenderer.get());

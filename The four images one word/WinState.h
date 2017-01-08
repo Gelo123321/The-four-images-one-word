@@ -1,8 +1,8 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#ifndef GAMEOVERSTATE_H
-#define GAMEOVERSTATE_H
+#ifndef WINSTATE_H
+#define WINSTATE_H
 
 #include <iostream>
 #include <vector>
@@ -14,7 +14,7 @@
 #include "MenuState.h"
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class GameOverState : public MenuState
+class WinState : public MenuState
 {
 public:
 	virtual void update();
@@ -23,17 +23,17 @@ public:
 	virtual bool onEnter();
 	virtual bool onExit();
 
-	virtual std::string getStateID() const { return s_gameOverID; }
+	virtual std::string getStateID() const { return s_winID; }
 private:
 
 	virtual void setCallbacks(const std::vector<Callback>& callbacks);
 
 	std::vector<GameObject*> m_gameObjects;
 
-	static void s_gameOverToMain();
-	static void s_restartPlay();
+	static void s_winToMain();
+	static void s_nextLevel();
 
-	static const std::string s_gameOverID;
+	static const std::string s_winID;
 };
 #endif
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

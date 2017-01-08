@@ -10,8 +10,9 @@
 #include "GameState.h"
 #include "StateParser.h"
 #include "PauseState.h"
-#include "GameOverState.h"
+#include "WinState.h"
 #include "GameObject.h"
+#include "Letter.h"
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class PlayState : public GameState
@@ -22,8 +23,6 @@ public:
 
 	virtual bool onEnter();
 	virtual bool onExit();
-
-	bool checkCollision(SDLGameObject* p1, SDLGameObject* p2);
 
 	virtual std::string getStateID() const { return s_playID; };
 private:
