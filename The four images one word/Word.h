@@ -16,40 +16,36 @@
 class Word : public SDLGameObject
 {
 public:
-	static Word* Instance()
-	{
-		if (s_pInstance == 0)
-		{
-			s_pInstance = new Word();
-			return s_pInstance;
-		}
-
-		return s_pInstance;
-	}
-
 	void Word::load(const LoaderParams *pParams);
 
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
 
-	void setLetter(std::string letter);
+	static void setLetter(std::string letter);
 	void setWord(std::string);
 
-	void clearWords();
+	static void setCategory(std::string category) { m_currentCategory = category; }
+	static void setLevel(std::string level) { m_currentLevel = level; }
+
+	static void clearWords();
 
 private:
 
-	Word() {};
-	~Word() {};
+	static std::string m_word;
+	static std::string m_currentWord;
 
-	static Word* s_pInstance;
-
-	std::string m_word;
-	std::string m_currentWord;
+	static std::string m_currentCategory;
+	static std::string m_currentLevel;
 };
 
-typedef Word TheWord;
+class WordCreator : public BaseCreator
+{
+	GameObject* createGameObject() const
+	{
+		return new Word();
+	}
+};
 
 #endif
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,5 +1,5 @@
 ﻿//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Gelo123321 - 2017. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #include "StateParser.h"
 #include "TextureManager.h"
@@ -66,23 +66,74 @@ bool StateParser::parseState(const char *stateFile, string stateID, vector<GameO
 	}
 
 	// now parse the objects
-	parseObjects(pObjectRoot, pObjects);
+	parseObjects(pObjectRoot, pObjects, pRoot);
 
-	TiXmlElement* pWordRoot = 0;
+	return true;
+}
 
-	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
+bool StateParser::setAttribute(const char* stateFile, std::string stateID, std::string level)
+{
+	// create the XML document
+	TiXmlDocument xmlDoc;
+
+	// load the state file
+	if (!xmlDoc.LoadFile(stateFile))
 	{
-		if (e->Value() == string("WORDS"))
+		cerr << xmlDoc.ErrorDesc() << "\n";
+		return false;
+	}
+
+	// get the root element
+	TiXmlElement* pRoot = xmlDoc.RootElement();
+
+	// pre declare the states root node
+	TiXmlElement* pStateRoot = 0;
+	// get this states root node and assing it to pStateRoot
+	for (TiXmlElement* e = pRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
+	{
+		if (e->Value() == stateID)
 		{
-			pWordRoot = e;
+			pStateRoot = e;
 			break;
 		}
 	}
 
-	if (pWordRoot != 0)
+
+	// pre declare the object root node
+	TiXmlElement* pObjectRoot = 0;
+
+	// get the root node and assign it to pObjectRoot
+	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
 	{
-		parseWords(pWordRoot);
+		if (e->Value() == string("OBJECTS"))
+		{
+			pObjectRoot = e;
+			break;
+		}
 	}
+
+	string currentLevel = "";
+	for (int i = 0; i < level.length(); i++)
+	{
+		if (isdigit(level[i]))
+		{
+			currentLevel += level[i];
+		}
+	}
+
+	currentLevel = to_string(stoi(currentLevel) + 1);
+
+	for (TiXmlElement* e = pObjectRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
+	{
+		if (strcmp(e->Attribute("type"), "LevelButton") == 0 &&
+			strcmp(e->Attribute("level"), currentLevel.c_str()) == 0)
+		{
+			e->SetAttribute("textureID", "lvl_open");
+			continue;
+		}
+	}
+
+	xmlDoc.SaveFile();
 
 	return true;
 }
@@ -101,12 +152,12 @@ void StateParser::parseTextures(TiXmlElement* pStateRoot, std::vector<std::strin
 	}
 }
 
-void StateParser::parseObjects(TiXmlElement *pStateRoot, std::vector<GameObject *> *pObjects)
+void StateParser::parseObjects(TiXmlElement *pStateRoot, std::vector<GameObject *> *pObjects, TiXmlElement* pRoot)
 {
 	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
 	{
 		int x, y, width, height, numFrames, callbackID, animSpeed;
-		string textureID;
+		string textureID, category, level, letter, word;
 
 		e->Attribute("x", &x);
 		e->Attribute("y", &y);
@@ -117,23 +168,32 @@ void StateParser::parseObjects(TiXmlElement *pStateRoot, std::vector<GameObject 
 		e->Attribute("animSpeed", &animSpeed);
 
 		textureID = e->Attribute("textureID");
+		category = pRoot->Value();
 
+		if (strcmp(e->Attribute("type"), "CategoryButton") == 0)
+		{
+			category = e->Attribute("category");
+		}
+		else if (strcmp(e->Attribute("type"), "LevelButton") == 0)
+		{
+			category = pRoot->Value();
+			level = e->Attribute("level");
+		}
+		else if (strcmp(e->Attribute("type"), "LetterButton") == 0)
+		{
+			letter = e->Attribute("letter");
+		}
+		else if (strcmp(e->Attribute("type"), "Word") == 0)
+		{
+			word = e->Attribute("word");
+		}
+		
 		//int x, int y, int width, int height, std::string textureID, int numFrames, void()
 		GameObject* pGameObject = TheGameObjectFactory::Instance()->create(e->Attribute("type"));
-		pGameObject->load(new LoaderParams(x, y, width, height, textureID, numFrames, callbackID, animSpeed));
+		pGameObject->load(new LoaderParams(x, y, width, height, textureID, numFrames, callbackID, animSpeed, category, level, letter, word));
+		
 		pObjects->push_back(pGameObject);
 	}
 }
 
-void StateParser::parseWords(TiXmlElement* pStateRoot) 
-{
-	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
-	{
-		string word;
-
-		word = e->Attribute("word");
-
-		TheWord::Instance()->setWord(word);
-	}
-}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

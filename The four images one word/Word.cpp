@@ -3,7 +3,10 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #include "Word.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Word* Word::s_pInstance = 0;
+std::string Word::m_currentWord = "";
+std::string Word::m_word = "-1";
+std::string Word::m_currentCategory = "";
+std::string Word::m_currentLevel = "";
 
 void Word::load(const LoaderParams * pParams)
 {
@@ -18,10 +21,16 @@ void Word::draw()
 
 void Word::update()
 {
-	if (m_currentWord.length() == m_word.length() &&
-		strcmp(m_currentWord.c_str(), m_word.c_str()) == 0)
+	if (m_currentWord.length() == m_word.length())
 	{
-		TheGame::Instance()->getStateManager()->changeState(new WinState());
+		if (strcmp(m_currentWord.c_str(), m_word.c_str()) == 0)
+		{
+			TheGame::Instance()->getStateManager()->changeState(new WinState(m_currentCategory, m_currentLevel));
+		}
+		else
+		{
+			m_currentWord = "";
+		}
 	}
 }
 

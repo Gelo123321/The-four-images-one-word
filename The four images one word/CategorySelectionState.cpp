@@ -1,12 +1,12 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Gelo123321 - 2017. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#include "MainMenuState.h"
+#include "CategorySelectionState.h"
 #include "Game.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const std::string MainMenuState::s_menuID = "MENU";
+const std::string CategorySelectionState::s_categorySelectionID = "CATEGORYSELECTION";
 
-void MainMenuState::update()
+void CategorySelectionState::update()
 {
 	if (!m_gameObjects.empty())
 	{
@@ -20,7 +20,7 @@ void MainMenuState::update()
 	}
 }
 
-void MainMenuState::render()
+void CategorySelectionState::render()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
@@ -28,23 +28,18 @@ void MainMenuState::render()
 	}
 }
 
-bool MainMenuState::onEnter()
+bool CategorySelectionState::onEnter()
 {
 	StateParser stateParser;
-	stateParser.parseState("states.xml", s_menuID, &m_gameObjects, &m_textureIDList);
+	stateParser.parseState("states.xml", s_categorySelectionID, &m_gameObjects, &m_textureIDList);
 
-	m_callbacks.push_back(0);
-	m_callbacks.push_back(s_menuToPlay);
-	m_callbacks.push_back(s_options);
-	m_callbacks.push_back(s_exitFromMenu);
+	setCallbacks();
 
-	setCallbacks(m_callbacks);
-
-	std::cout << "entering MainMenuState\n";
+	std::cout << "entering CategorySelectionState\n";
 	return true;
 }
 
-bool MainMenuState::onExit()
+bool CategorySelectionState::onExit()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
@@ -59,11 +54,11 @@ bool MainMenuState::onExit()
 		TheTextureManager::Instance()->clearFromTextureMap(m_textureIDList[i]);
 	}
 
-	std::cout << "exiting MainMenuState\n";
+	std::cout << "exiting CategorySelectionState\n";
 	return true;
 }
 
-void MainMenuState::setCallbacks(const std::vector<Callback>& callbacks)
+void CategorySelectionState::setCallbacks()
 {
 	// go through the game objects
 	if (!m_gameObjects.empty())
@@ -71,28 +66,19 @@ void MainMenuState::setCallbacks(const std::vector<Callback>& callbacks)
 		for (int i = 0; i < m_gameObjects.size(); i++)
 		{
 			// if they are of type MenuButton then assign a callback based on the id passed in from the file
-			if (dynamic_cast<MenuButton*>(m_gameObjects[i]))
+			if (dynamic_cast<CategoryButton*>(m_gameObjects[i]))
 			{
-				MenuButton* pButton = dynamic_cast<MenuButton*>(m_gameObjects[i]);
-				pButton->setCallback(callbacks[pButton->getCallbackID()]);
+				CategoryButton* pButton = dynamic_cast<CategoryButton*>(m_gameObjects[i]);
+				pButton->setCallback(s_selectCategory);
 			}
 		}
 	}
 }
 
-void MainMenuState::s_menuToPlay()
+void CategorySelectionState::s_selectCategory(std::string currentCategory)
 {
-	TheGame::Instance()->getStateManager()->changeState(new CategorySelectionState());
+	TheGame::Instance()->getStateManager()->changeState(new LevelSelectionState(currentCategory));
 }
 
-void MainMenuState::s_options()
-{
-	TheGame::Instance()->getStateManager()->changeState(new OptionsState());
-}
-
-void MainMenuState::s_exitFromMenu()
-{
-	TheGame::Instance()->quit();
-}
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

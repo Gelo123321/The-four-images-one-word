@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<States1>
+<States>
     <MENU>
         <TEXTURES>
             <texture filename="resources/img/play.png" ID="playbutton"/>
@@ -49,4 +49,20 @@
             <object type="MenuButton" x="176" y="352" width="128" height="32" textureID="nextbutton" numFrames="0" callbackID="2"/>
         </OBJECTS>
     </WIN>
-</States1>
+
+    <CATEGORYSELECTION>
+        <TEXTURES>
+            <texture filename="resources/category/all.png" ID="cat1"/>
+            <texture filename="resources/category/all.png" ID="cat2"/>
+            <texture filename="resources/category/all.png" ID="cat3"/>
+            <texture filename="resources/category/all.png" ID="cat4"/>
+        </TEXTURES>
+        
+        <OBJECTS>
+            <object type="CategoryButton" x="22" y="22" width="196" height="32" textureID="cat1" category="all"/>
+            <object type="CategoryButton" x="262" y="22" width="196" height="32" textureID="cat2" category="all"/>
+            <object type="CategoryButton" x="22" y="70" width="196" height="32" textureID="cat3" category="all"/>
+            <object type="CategoryButton" x="262" y="70" width="196" height="32" textureID="cat4" category="all"/>
+        </OBJECTS>
+    </CATEGORYSELECTION>
+</States>

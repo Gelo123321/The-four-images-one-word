@@ -8,14 +8,15 @@
 #include "TextureManager.h"
 #include "InputHandler.h"
 #include "StateManager.h"
-#include "ProgressParser.h"
 
 #include "MainMenuState.h"
 #include "PlayState.h"
 
 #include "Player.h"
-#include "Letter.h"
 #include "Word.h"
+#include "LevelButton.h"
+#include "CategoryButton.h"
+#include "LetterButton.h"
 
 #include <SDL.h>
 
@@ -80,8 +81,6 @@ private:
 	SDL_Surface* m_pSurfaceCursor;
 
 	SDL_Surface* m_pSurfaceIcon;
-
-	ProgressParser progressParser;
 
 	Game() {};
 

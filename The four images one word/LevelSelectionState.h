@@ -1,23 +1,20 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Gelo123321 - 2017. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#ifndef PLAYSTATE_H
-#define PLAYSTATE_H
+#ifndef LEVELSELECTIONSTATE_H
+#define LEVELSELECTIONSTATE_H
 
-#include <iostream>
-#include <vector>
-#include "SDL.h"
-#include "GameState.h"
+#include "MenuState.h"
+#include "GameObject.h"
 #include "StateParser.h"
-#include "PauseState.h"
-#include "WinState.h"
-#include "LetterButton.h"
+#include "OptionsState.h"
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class PlayState : public GameState
+class LevelSelectionState : public GameState
 {
 public:
-	PlayState(std::string, std::string);
+
+	LevelSelectionState(std::string);
 
 	virtual void update();
 	virtual void render();
@@ -25,19 +22,19 @@ public:
 	virtual bool onEnter();
 	virtual bool onExit();
 
-	virtual std::string getStateID() const { return s_playID; };
+	virtual std::string getStateID() const { return s_levelSelectionID; };
 private:
 
 	void setCallbacks();
 
-	std::string m_currentLevel;
 	std::string m_currentCategory;
 
 	std::vector<GameObject*> m_gameObjects;
 
-	static const std::string s_playID;
+	static const std::string s_levelSelectionID;
 
-	static void s_setLetter(std::string);
+	static void s_selectLevel(std::string, std::string);
+
 };
 #endif
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

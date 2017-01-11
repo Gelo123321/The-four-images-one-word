@@ -1,17 +1,17 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Gelo123321 - 2017. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#ifndef MAINMENUSTATE_H
-#define MAINMENUSTATE_H
+#ifndef CATEGORYSELECTIONSTATE_H
+#define CATEGORYSELECTIONSTATE_H
 
 #include "MenuState.h"
 #include "GameObject.h"
 #include "StateParser.h"
 #include "OptionsState.h"
-#include "CategorySelectionState.h"
+#include "LevelSelectionState.h"
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class MainMenuState : public MenuState
+class CategorySelectionState : public GameState
 {
 public:
 	virtual void update();
@@ -20,22 +20,17 @@ public:
 	virtual bool onEnter();
 	virtual bool onExit();
 
-	virtual std::string getStateID() const { return s_menuID; };
+	virtual std::string getStateID() const { return s_categorySelectionID; };
 private:
 
-	virtual void setCallbacks(const std::vector<Callback> & callbacks);
+	virtual void setCallbacks();
 
 	std::vector<GameObject*> m_gameObjects;
 
-	static void s_menuToPlay();
-	static void s_options();
-	static void s_exitFromMenu();
+	static void s_selectCategory(std::string);
 
-	static const std::string s_menuID;
+	static const std::string s_categorySelectionID;
 
-	typedef void(*Callback)();
-
-	std::vector<Callback> m_callbacks;
 };
 #endif
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

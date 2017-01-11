@@ -1,27 +1,33 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#include "Letter.h"
+#include "LevelButton.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Letter::Letter() : SDLGameObject()
+LevelButton::LevelButton() : SDLGameObject()
 {
-
+	isLock = false;
 }
 
-void Letter::load(const LoaderParams * pParams)
+void LevelButton::load(const LoaderParams * pParams)
 {
 	SDLGameObject::load(pParams);
-	m_letter = pParams->getTextureID();
+	m_callbackID = pParams->getCallbackID();
+	m_currentCategory = pParams->getCategory();
+	m_currentLevel = pParams->getLevel();
+	if (strcmp(pParams->getTextureID().c_str(), "lvl_lock") == 0)
+	{
+		isLock = true;
+	}
 	m_currentFrame = MOUSE_OUT;
 }
 
-void Letter::draw()
+void LevelButton::draw()
 {
 	SDLGameObject::draw();
 }
 
-void Letter::update()
+void LevelButton::update()
 {
 	Vector2D* pMousePos = TheInputHandler::Instance()->getMousePosition();
 
@@ -34,8 +40,11 @@ void Letter::update()
 		{
 			m_currentFrame = CLICKED;
 
-			TheWord::Instance()->setLetter(m_letter); // call our callback function
-
+			if (!isLock) 
+			{
+				m_callback(m_currentCategory, m_currentLevel); // call our callback function
+			}
+		
 			m_bReleased = false;
 		}
 		else if (!TheInputHandler::Instance()->getMouseButtonState(LEFT))
@@ -50,7 +59,7 @@ void Letter::update()
 	}
 }
 
-void Letter::clean()
+void LevelButton::clean()
 {
 	SDLGameObject::clean();
 }

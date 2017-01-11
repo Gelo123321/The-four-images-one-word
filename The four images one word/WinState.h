@@ -17,6 +17,8 @@
 class WinState : public MenuState
 {
 public:
+	WinState(std::string, std::string);
+
 	virtual void update();
 	virtual void render();
 
@@ -25,6 +27,8 @@ public:
 
 	virtual std::string getStateID() const { return s_winID; }
 private:
+	static std::string m_currentLevel;
+	static std::string m_currentCategory;
 
 	virtual void setCallbacks(const std::vector<Callback>& callbacks);
 

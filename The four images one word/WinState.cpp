@@ -5,6 +5,14 @@
 #include "Game.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const std::string WinState::s_winID = "WIN";
+std::string WinState::m_currentCategory = "";
+std::string WinState::m_currentLevel = "";
+
+WinState::WinState(std::string currentCategory, std::string currentLevel)
+{
+	m_currentCategory = currentCategory;
+	m_currentLevel = currentLevel;
+}
 
 void WinState::update()
 {
@@ -27,6 +35,8 @@ bool WinState::onEnter()
 	// parse the state
 	StateParser stateParser;
 	stateParser.parseState("states.xml", s_winID, &m_gameObjects, &m_textureIDList);
+	std::string path = "resources\\category\\" + m_currentCategory + ".xml";
+	stateParser.setAttribute(path.c_str(), "LEVELSELECTION", m_currentLevel.c_str());
 
 	m_callbacks.push_back(0);
 	m_callbacks.push_back(s_winToMain);
@@ -56,8 +66,6 @@ bool WinState::onExit()
 		TheTextureManager::Instance()->clearFromTextureMap(m_textureIDList[i]);
 	}
 
-	TheWord::Instance()->clearWords();
-
 	std::cout << "exiting WinState\n";
 	return true;
 }
@@ -86,7 +94,17 @@ void WinState::s_winToMain()
 
 void WinState::s_nextLevel()
 {
-	TheGame::Instance()->getStateManager()->changeState(new PlayState());
+	string level = "";
+	for (int i = 0; i < m_currentLevel.length(); i++)
+	{
+		if (isdigit(m_currentLevel[i]))
+		{
+			level += m_currentLevel[i];
+		}
+	}
+
+	m_currentLevel = to_string(stoi(level) + 1);
+	TheGame::Instance()->getStateManager()->changeState(new PlayState(m_currentCategory, m_currentLevel));
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

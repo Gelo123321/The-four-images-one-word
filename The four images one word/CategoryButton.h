@@ -1,8 +1,8 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#ifndef LETTER_H
-#define LETTER_H
+#ifndef CATEGORYBUTTON_H
+#define CATEGORYBUTTON_H
 
 #include <iostream>
 #include <string>
@@ -15,19 +15,25 @@
 #include <vector>
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class Letter : public SDLGameObject
+class CategoryButton : public SDLGameObject
 {
 public:
-	Letter();
+	CategoryButton();
 
-	void Letter::load(const LoaderParams *pParams);
+	void CategoryButton::load(const LoaderParams *pParams);
 
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
-	
+
+	void setCallback(void(*callback)(std::string)) { m_callback = callback; }
+	int getCallbackID() { return m_callbackID; }
 private:
-	std::string m_letter;
+	bool isLock;
+
+	int m_callbackID;
+
+	std::string m_currentCategory;
 
 	enum button_state
 	{
@@ -37,14 +43,16 @@ private:
 	};
 
 	bool m_bReleased;
+
+	void(*m_callback) (std::string);
 };
 
 // for the factory
-class LetterCreator : public BaseCreator
+class CategoryButtonCreator : public BaseCreator
 {
 	GameObject* createGameObject() const
 	{
-		return new Letter();
+		return new CategoryButton();
 	}
 };
 #endif

@@ -126,13 +126,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedGraphic.h" />
+    <ClInclude Include="CategoryButton.h" />
+    <ClInclude Include="CategorySelectionState.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjectFactory.h" />
-    <ClInclude Include="ProgressParser.h" />
+    <ClInclude Include="LevelButton.h" />
+    <ClInclude Include="LevelSelectionState.h" />
     <ClInclude Include="WinState.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputHandler.h" />
-    <ClInclude Include="Letter.h" />
+    <ClInclude Include="LetterButton.h" />
     <ClInclude Include="LoaderParams.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="MenuButton.h" />
@@ -152,12 +155,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedGraphic.cpp" />
+    <ClCompile Include="CategoryButton.cpp" />
+    <ClCompile Include="CategorySelectionState.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
-    <ClCompile Include="ProgressParser.cpp" />
+    <ClCompile Include="LevelButton.cpp" />
+    <ClCompile Include="LevelSelectionState.cpp" />
     <ClCompile Include="WinState.cpp" />
     <ClCompile Include="InputHandler.cpp" />
-    <ClCompile Include="Letter.cpp" />
+    <ClCompile Include="LetterButton.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="MenuButton.cpp" />

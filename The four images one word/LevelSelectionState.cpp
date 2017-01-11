@@ -1,12 +1,17 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Gelo123321 - 2016. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Gelo123321 - 2017. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#include "MainMenuState.h"
+#include "LevelSelectionState.h"
 #include "Game.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const std::string MainMenuState::s_menuID = "MENU";
+const std::string LevelSelectionState::s_levelSelectionID = "LEVELSELECTION";
 
-void MainMenuState::update()
+LevelSelectionState::LevelSelectionState(std::string currentCategory)
+{
+	m_currentCategory = currentCategory;
+}
+
+void LevelSelectionState::update()
 {
 	if (!m_gameObjects.empty())
 	{
@@ -20,7 +25,7 @@ void MainMenuState::update()
 	}
 }
 
-void MainMenuState::render()
+void LevelSelectionState::render()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
@@ -28,23 +33,19 @@ void MainMenuState::render()
 	}
 }
 
-bool MainMenuState::onEnter()
+bool LevelSelectionState::onEnter()
 {
 	StateParser stateParser;
-	stateParser.parseState("states.xml", s_menuID, &m_gameObjects, &m_textureIDList);
+	std::string path = "resources\\category\\" + m_currentCategory + ".xml";
+	stateParser.parseState(path.c_str(), s_levelSelectionID, &m_gameObjects, &m_textureIDList);
 
-	m_callbacks.push_back(0);
-	m_callbacks.push_back(s_menuToPlay);
-	m_callbacks.push_back(s_options);
-	m_callbacks.push_back(s_exitFromMenu);
+	setCallbacks();
 
-	setCallbacks(m_callbacks);
-
-	std::cout << "entering MainMenuState\n";
+	std::cout << "entering LevelSelectionState\n";
 	return true;
 }
 
-bool MainMenuState::onExit()
+bool LevelSelectionState::onExit()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
@@ -59,11 +60,11 @@ bool MainMenuState::onExit()
 		TheTextureManager::Instance()->clearFromTextureMap(m_textureIDList[i]);
 	}
 
-	std::cout << "exiting MainMenuState\n";
+	std::cout << "exiting LevelSelectionState\n";
 	return true;
 }
 
-void MainMenuState::setCallbacks(const std::vector<Callback>& callbacks)
+void LevelSelectionState::setCallbacks()
 {
 	// go through the game objects
 	if (!m_gameObjects.empty())
@@ -71,28 +72,18 @@ void MainMenuState::setCallbacks(const std::vector<Callback>& callbacks)
 		for (int i = 0; i < m_gameObjects.size(); i++)
 		{
 			// if they are of type MenuButton then assign a callback based on the id passed in from the file
-			if (dynamic_cast<MenuButton*>(m_gameObjects[i]))
+			if (dynamic_cast<LevelButton*>(m_gameObjects[i]))
 			{
-				MenuButton* pButton = dynamic_cast<MenuButton*>(m_gameObjects[i]);
-				pButton->setCallback(callbacks[pButton->getCallbackID()]);
+				LevelButton* pButton = dynamic_cast<LevelButton*>(m_gameObjects[i]);
+				pButton->setCallback(s_selectLevel);
 			}
 		}
 	}
 }
 
-void MainMenuState::s_menuToPlay()
+void LevelSelectionState::s_selectLevel(std::string currentCategory, std::string currentLevel)
 {
-	TheGame::Instance()->getStateManager()->changeState(new CategorySelectionState());
-}
-
-void MainMenuState::s_options()
-{
-	TheGame::Instance()->getStateManager()->changeState(new OptionsState());
-}
-
-void MainMenuState::s_exitFromMenu()
-{
-	TheGame::Instance()->quit();
+	TheGame::Instance()->getStateManager()->changeState(new PlayState(currentCategory, currentLevel));
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
