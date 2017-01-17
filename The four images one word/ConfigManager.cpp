@@ -40,7 +40,7 @@ bool ConfigManager::load()
 	return true;
 }
 
-int ConfigManager::get(std::string key)
+int ConfigManager::get(const std::string key)
 {
 	std::map<std::string, int>::iterator it = m_config.find(key);
 
@@ -51,6 +51,41 @@ int ConfigManager::get(std::string key)
 	}
 
 	return (*it).second;
+}
+
+bool ConfigManager::save()
+{
+	std::ofstream file(CONFIG_FILE_NAME);
+	if (!file)
+	{
+		std::cout << "\TheConfigManager::save Couldn't open '" + CONFIG_FILE_NAME + "'!\n";
+		return false;
+	}
+
+	for (std::map<std::string, int>::iterator it = m_config.begin(); it != m_config.end(); it++)
+	{
+		std::string line;
+		line = it->first + "=" + std::to_string(it->second) + '\n';
+
+		file << line;
+	}
+
+	file.close();
+
+	std::cout << "TheConfigManager::save success!\n";
+	return true;
+}
+
+void ConfigManager::set(const std::string key, int value)
+{
+	std::map<std::string, int>::iterator it = m_config.find(key);
+
+	if (it == m_config.end()) 
+	{
+		m_config.insert(std::pair<std::string, int>(key, value));
+	}
+
+	it->second = value;
 }
 
 std::vector<std::string> ConfigManager::split(const std::string & str, const char delim)

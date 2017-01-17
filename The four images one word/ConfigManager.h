@@ -26,10 +26,12 @@ public:
 
 	bool load();
 	int get(std::string key);
+	bool save();
+	void set(std::string key, int value);
 
 private:
 
-	std::vector<std::string> split(const std::string& str, const char delim);
+	std::vector<std::string> split(const std::string& str, char delim);
 
 	const std::string CONFIG_FILE_NAME = "config.ini";
 	const char COMMENT_CHAR = '#';
