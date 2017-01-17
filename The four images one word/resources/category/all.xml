@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <all>
     <LEVELSELECTION>
         <TEXTURES>
@@ -9,7 +9,7 @@
             <object type="LevelButton" x="44" y="44" width="32" height="32" textureID="lvl_open" numFrames="0" level="1" />
             <object type="LevelButton" x="84" y="44" width="32" height="32" textureID="lvl_open" numFrames="0" level="2" />
             <object type="LevelButton" x="124" y="44" width="32" height="32" textureID="lvl_open" numFrames="0" level="3" />
-            <object type="LevelButton" x="164" y="44" width="32" height="32" textureID="lvl_open" numFrames="0" level="4" />
+            <object type="LevelButton" x="164" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" level="4" />
             <object type="LevelButton" x="204" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" level="5" />
             <object type="LevelButton" x="244" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" level="6" />
             <object type="LevelButton" x="284" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" level="7" />
@@ -64,97 +64,82 @@
             <texture filename="resources/category/none/1.png" ID="img1" />
             <texture filename="resources/category/none/2.png" ID="img2" />
             <texture filename="resources/category/none/3.png" ID="img3" />
+            <texture filename="resources/category/none/4.png" ID="img4" />
             <texture filename="resources/img/letters/А.png" ID="А" />
-            <texture filename="resources/img/letters/0.png" ID="0" />
+            <texture filename="resources/img/letters/Б.png" ID="Б" />
+            <texture filename="resources/img/letters/В.png" ID="В" />
+            <texture filename="resources/img/letters/Д.png" ID="Д" />
+            <texture filename="resources/img/letters/Е.png" ID="Е" />
+            <texture filename="resources/img/letters/И.png" ID="И" />
+            <texture filename="resources/img/letters/І.png" ID="І" />
+            <texture filename="resources/img/letters/К.png" ID="К" />
+            <texture filename="resources/img/letters/О.png" ID="О" />
+            <texture filename="resources/img/letters/Р.png" ID="Р" />
         </TEXTURES>
         <OBJECTS>
-            <object type="AnimatedGraphic" x="96" y="176" width="128" height="128" textureID="img0" numFrames="1" animSpeed="1" />
-            <object type="AnimatedGraphic" x="256" y="176" width="128" height="128" textureID="img1" numFrames="1" animSpeed="1" />
-            <object type="AnimatedGraphic" x="96" y="336" width="128" height="128" textureID="img2" numFrames="1" animSpeed="1" />
-            <object type="AnimatedGraphic" x="256" y="336" width="128" height="128" textureID="img3" numFrames="1" animSpeed="1" />
-            <object type="LetterButton" x="84" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="124" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="AnimatedGraphic" x="96" y="176" width="128" height="128" textureID="img1" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="256" y="176" width="128" height="128" textureID="img2" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="96" y="336" width="128" height="128" textureID="img3" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="256" y="336" width="128" height="128" textureID="img4" numFrames="1" animSpeed="1" />
+            <object type="LetterButton" x="84" y="496" width="32" height="32" textureID="А" numFrames="0" letter="A" />
+            <object type="LetterButton" x="124" y="496" width="32" height="32" textureID="Д" numFrames="0" letter="Д" />
             <object type="LetterButton" x="164" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="204" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="244" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="284" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="324" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="364" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="84" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="124" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="204" y="496" width="32" height="32" textureID="О" numFrames="0" letter="О" />
+            <object type="LetterButton" x="244" y="496" width="32" height="32" textureID="Б" numFrames="0" letter="Б" />
+            <object type="LetterButton" x="284" y="496" width="32" height="32" textureID="Е" numFrames="0" letter="Е" />
+            <object type="LetterButton" x="324" y="496" width="32" height="32" textureID="О" numFrames="0" letter="О" />
+            <object type="LetterButton" x="364" y="496" width="32" height="32" textureID="К" numFrames="0" letter="К" />
+            <object type="LetterButton" x="84" y="536" width="32" height="32" textureID="В" numFrames="0" letter="В" />
+            <object type="LetterButton" x="124" y="536" width="32" height="32" textureID="В" numFrames="0" letter="В" />
             <object type="LetterButton" x="164" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="204" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="204" y="536" width="32" height="32" textureID="Р" numFrames="0" letter="Р" />
             <object type="LetterButton" x="244" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="284" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="324" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="364" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="Word" x="0" y="0" width="480" height="32" textureID="А" numFrames="0" word="ААААА" />
+            <object type="LetterButton" x="284" y="536" width="32" height="32" textureID="К" numFrames="0" letter="К" />
+            <object type="LetterButton" x="324" y="536" width="32" height="32" textureID="И" numFrames="0" letter="И" />
+            <object type="LetterButton" x="364" y="536" width="32" height="32" textureID="І" numFrames="0" letter="І" />
+            <object type="Word" x="0" y="0" width="480" height="32" textureID="А" numFrames="0" word="ДЕРЕВО" />
         </OBJECTS>
     </lvl1>
     <lvl2>
         <TEXTURES>
             <texture filename="resources/category/none/0.png" ID="img0" />
-            <texture filename="resources/category/none/1.png" ID="img1" />
-            <texture filename="resources/category/none/2.png" ID="img2" />
-            <texture filename="resources/category/none/3.png" ID="img3" />
+            <texture filename="resources/category/none/5.png" ID="img1" />
+            <texture filename="resources/category/none/6.png" ID="img2" />
+            <texture filename="resources/category/none/7.png" ID="img3" />
+            <texture filename="resources/category/none/8.png" ID="img4" />
             <texture filename="resources/img/letters/А.png" ID="А" />
-            <texture filename="resources/img/letters/0.png" ID="0" />
+            <texture filename="resources/img/letters/Б.png" ID="Б" />
+            <texture filename="resources/img/letters/В.png" ID="В" />
+            <texture filename="resources/img/letters/Д.png" ID="Д" />
+            <texture filename="resources/img/letters/Е.png" ID="Е" />
+            <texture filename="resources/img/letters/И.png" ID="И" />
+            <texture filename="resources/img/letters/І.png" ID="І" />
+            <texture filename="resources/img/letters/К.png" ID="К" />
+            <texture filename="resources/img/letters/О.png" ID="О" />
+            <texture filename="resources/img/letters/Р.png" ID="Р" />
         </TEXTURES>
         <OBJECTS>
-            <object type="AnimatedGraphic" x="96" y="176" width="128" height="128" textureID="img0" numFrames="1" animSpeed="1" />
-            <object type="AnimatedGraphic" x="256" y="176" width="128" height="128" textureID="img1" numFrames="1" animSpeed="1" />
-            <object type="AnimatedGraphic" x="96" y="336" width="128" height="128" textureID="img2" numFrames="1" animSpeed="1" />
-            <object type="AnimatedGraphic" x="256" y="336" width="128" height="128" textureID="img3" numFrames="1" animSpeed="1" />
-            <object type="LetterButton" x="84" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="124" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="AnimatedGraphic" x="96" y="176" width="128" height="128" textureID="img1" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="256" y="176" width="128" height="128" textureID="img2" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="96" y="336" width="128" height="128" textureID="img3" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="256" y="336" width="128" height="128" textureID="img4" numFrames="1" animSpeed="1" />
+            <object type="LetterButton" x="84" y="496" width="32" height="32" textureID="А" numFrames="0" letter="A" />
+            <object type="LetterButton" x="124" y="496" width="32" height="32" textureID="Д" numFrames="0" letter="Д" />
             <object type="LetterButton" x="164" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="204" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="244" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="284" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="324" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="364" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="84" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="124" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="204" y="496" width="32" height="32" textureID="О" numFrames="0" letter="О" />
+            <object type="LetterButton" x="244" y="496" width="32" height="32" textureID="Б" numFrames="0" letter="Б" />
+            <object type="LetterButton" x="284" y="496" width="32" height="32" textureID="Е" numFrames="0" letter="Е" />
+            <object type="LetterButton" x="324" y="496" width="32" height="32" textureID="О" numFrames="0" letter="О" />
+            <object type="LetterButton" x="364" y="496" width="32" height="32" textureID="К" numFrames="0" letter="К" />
+            <object type="LetterButton" x="84" y="536" width="32" height="32" textureID="В" numFrames="0" letter="В" />
+            <object type="LetterButton" x="124" y="536" width="32" height="32" textureID="В" numFrames="0" letter="В" />
             <object type="LetterButton" x="164" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="204" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="204" y="536" width="32" height="32" textureID="Р" numFrames="0" letter="Р" />
             <object type="LetterButton" x="244" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="284" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="324" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="364" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="Word" x="0" y="0" width="480" height="32" textureID="А" numFrames="0" word="ААА" />
+            <object type="LetterButton" x="284" y="536" width="32" height="32" textureID="К" numFrames="0" letter="К" />
+            <object type="LetterButton" x="324" y="536" width="32" height="32" textureID="И" numFrames="0" letter="И" />
+            <object type="LetterButton" x="364" y="536" width="32" height="32" textureID="І" numFrames="0" letter="І" />
+            <object type="Word" x="0" y="0" width="480" height="32" textureID="А" numFrames="0" word="ВИВІРКА" />
         </OBJECTS>
     </lvl2>
-    <lvl3>
-        <TEXTURES>
-            <texture filename="resources/category/none/0.png" ID="img0" />
-            <texture filename="resources/category/none/1.png" ID="img1" />
-            <texture filename="resources/category/none/2.png" ID="img2" />
-            <texture filename="resources/category/none/3.png" ID="img3" />
-            <texture filename="resources/img/letters/А.png" ID="А" />
-            <texture filename="resources/img/letters/0.png" ID="0" />
-        </TEXTURES>
-        <OBJECTS>
-            <object type="AnimatedGraphic" x="96" y="176" width="128" height="128" textureID="img0" numFrames="1" animSpeed="1" />
-            <object type="AnimatedGraphic" x="256" y="176" width="128" height="128" textureID="img1" numFrames="1" animSpeed="1" />
-            <object type="AnimatedGraphic" x="96" y="336" width="128" height="128" textureID="img2" numFrames="1" animSpeed="1" />
-            <object type="AnimatedGraphic" x="256" y="336" width="128" height="128" textureID="img3" numFrames="1" animSpeed="1" />
-            <object type="LetterButton" x="84" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="124" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="164" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="204" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="244" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="284" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="324" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="364" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="84" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="124" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="164" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="204" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="244" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="284" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="324" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="LetterButton" x="364" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
-            <object type="Word" x="0" y="0" width="480" height="32" textureID="А" numFrames="0" word="А" />
-        </OBJECTS>
-    </lvl3>
 </all>

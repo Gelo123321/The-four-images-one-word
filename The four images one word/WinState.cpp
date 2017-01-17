@@ -4,6 +4,7 @@
 #include "WinState.h"
 #include "Game.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 const std::string WinState::s_winID = "WIN";
 std::string WinState::m_currentCategory = "";
 std::string WinState::m_currentLevel = "";
@@ -87,12 +88,12 @@ void WinState::setCallbacks(const std::vector<Callback>& callbacks)
 	}
 }
 
-void WinState::s_winToMain()
+void WinState::s_winToMain(int callbackID)
 {
 	TheGame::Instance()->getStateManager()->changeState(new MainMenuState());
 }
 
-void WinState::s_nextLevel()
+void WinState::s_nextLevel(int callbackID)
 {
 	string level = "";
 	for (int i = 0; i < m_currentLevel.length(); i++)

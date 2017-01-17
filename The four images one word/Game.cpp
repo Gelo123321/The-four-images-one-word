@@ -88,6 +88,10 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, b
 	TheGameObjectFactory::Instance()->registerType("LevelButton", new LevelButtonCreator());
 	TheGameObjectFactory::Instance()->registerType("CategoryButton", new CategoryButtonCreator());
 	TheGameObjectFactory::Instance()->registerType("Word", new WordCreator());
+
+	TheSoundManager::Instance()->load("resources//SFX//click.wav", "click", SOUND_SFX); // TODO move to better place ?
+
+	std::cout << "TheGame::init success!\n";
 	
 	m_pStateManager = new StateManager();
 	m_pStateManager->changeState(new MainMenuState());

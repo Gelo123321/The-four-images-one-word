@@ -28,6 +28,10 @@ bool OptionsState::onEnter()
 	stateParser.parseState("states.xml", s_optionsID, &m_gameObjects, &m_textureIDList);
 
 	m_callbacks.push_back(0);
+	for (int i = 1; i < 6; i++)
+	{
+		m_callbacks.push_back(s_setVolumeSFX);
+	}
 	m_callbacks.push_back(s_optionsToMain);
 
 
@@ -73,9 +77,34 @@ void OptionsState::setCallbacks(const std::vector<Callback>& callbacks)
 	}
 }
 
-void OptionsState::s_optionsToMain()
+void OptionsState::s_optionsToMain(int callbackID)
 {
 	TheGame::Instance()->getStateManager()->changeState(new MainMenuState());
+}
+
+void OptionsState::s_setVolumeSFX(int callbackID)
+{
+	int volume = 0;
+	switch (callbackID)
+	{
+	case 1:
+		volume = 0;
+		break;
+	case 2:
+		volume = 32;
+		break;
+	case 3:
+		volume = 64;
+		break;
+	case 4:
+		volume = 96;
+		break;
+	case 5:
+		volume = 128;
+		break;
+	}
+	
+	TheSoundManager::Instance()->setVolumeSFX(volume);
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

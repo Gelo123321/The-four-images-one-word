@@ -34,8 +34,8 @@ private:
 
 	std::vector<GameObject*> m_gameObjects;
 
-	static void s_winToMain();
-	static void s_nextLevel();
+	static void s_winToMain(int);
+	static void s_nextLevel(int);
 
 	static const std::string s_winID;
 };

@@ -28,8 +28,8 @@ private:
 
 	std::vector<GameObject*> m_gameObjects;
 
-	static void s_pauseToMain();
-	static void s_resumePlay();
+	static void s_pauseToMain(int);
+	static void s_resumePlay(int);
 
 	static const std::string s_pauseID;
 };

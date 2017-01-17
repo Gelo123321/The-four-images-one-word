@@ -80,17 +80,17 @@ void MainMenuState::setCallbacks(const std::vector<Callback>& callbacks)
 	}
 }
 
-void MainMenuState::s_menuToPlay()
+void MainMenuState::s_menuToPlay(int callbackID)
 {
 	TheGame::Instance()->getStateManager()->changeState(new CategorySelectionState());
 }
 
-void MainMenuState::s_options()
+void MainMenuState::s_options(int callbackID)
 {
 	TheGame::Instance()->getStateManager()->changeState(new OptionsState());
 }
 
-void MainMenuState::s_exitFromMenu()
+void MainMenuState::s_exitFromMenu(int callbackID)
 {
 	TheGame::Instance()->quit();
 }

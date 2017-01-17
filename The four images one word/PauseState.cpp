@@ -74,12 +74,13 @@ void PauseState::setCallbacks(const std::vector<Callback>& callbacks)
 	}
 }
 
-void PauseState::s_pauseToMain()
+void PauseState::s_pauseToMain(int callbackID)
 {
+	TheGame::Instance()->getStateManager()->popState();
 	TheGame::Instance()->getStateManager()->changeState(new MainMenuState());
 }
 
-void PauseState::s_resumePlay()
+void PauseState::s_resumePlay(int callbackID)
 {
 	TheGame::Instance()->getStateManager()->popState();
 }

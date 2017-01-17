@@ -5,9 +5,11 @@
             <texture filename="resources/img/play.png" ID="playbutton"/>
             <texture filename="resources/img/options.png" ID="optionsbutton"/>
             <texture filename="resources/img/exit.png" ID="exitbutton"/>
+            <texture filename="resources/img/genry.png" ID="genry_hello"/>
         </TEXTURES>
         
         <OBJECTS>
+            <object type="AnimatedGraphic" x="128" y="400" width="256" height="256" textureID="genry_hello" numFrames="4" animSpeed="3"/>
             <object type="MenuButton" x="176" y="256" width="128" height="32" textureID="playbutton" numFrames="0" callbackID="1"/>
             <object type="MenuButton" x="176" y="304" width="128" height="32" textureID="optionsbutton" numFrames="0" callbackID="2"/>
             <object type="MenuButton" x="176" y="352" width="128" height="32" textureID="exitbutton" numFrames="0" callbackID="3"/>
@@ -17,10 +19,17 @@
     <OPTIONS>
         <TEXTURES>
             <texture filename="resources/img/main.png" ID="mainbutton"/>
+            <texture filename="resources/img/lvl_open.png" ID="volumebutton"/>
         </TEXTURES>
         
         <OBJECTS>
-            <object type="MenuButton" x="176" y="304" width="128" height="32" textureID="mainbutton" numFrames="0" callbackID="1"/>
+            <object type="MenuButton" x="128" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="1"/>
+            <object type="MenuButton" x="168" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="2"/>
+            <object type="MenuButton" x="208" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="3"/>
+            <object type="MenuButton" x="248" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="4"/>
+            <object type="MenuButton" x="288" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="5"/>
+          
+            <object type="MenuButton" x="176" y="304" width="128" height="32" textureID="mainbutton" numFrames="0" callbackID="6"/>
         </OBJECTS>
     </OPTIONS>
     

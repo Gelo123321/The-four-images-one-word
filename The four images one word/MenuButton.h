@@ -10,6 +10,7 @@
 #include "LoaderParams.h"
 #include "InputHandler.h"
 #include "GameObjectFactory.h"
+#include "SoundManager.h"
 #include <vector>
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -25,7 +26,7 @@ public:
 	void update();
 	void clean();
 
-	void setCallback(void(*callback)()) { m_callback = callback; }
+	void setCallback(void(*callback)(int)) { m_callback = callback; }
 	int getCallbackID() { return m_callbackID; }
 protected:
 	enum button_state
@@ -37,7 +38,7 @@ protected:
 
 	int m_callbackID;
 
-	void (*m_callback) ();
+	void (*m_callback) (int);
 
 	bool m_bReleased;
 };

@@ -11,6 +11,7 @@
 #include "Game.h"
 #include "LoaderParams.h"
 #include <vector>
+#include "LetterButton.h"
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class Word : public SDLGameObject
@@ -32,11 +33,18 @@ public:
 
 private:
 
+	void createLetters();
+	void updateLetters();
+
 	static std::string m_word;
 	static std::string m_currentWord;
 
 	static std::string m_currentCategory;
 	static std::string m_currentLevel;
+
+	static std::vector<std::string> textureID;
+
+	std::vector<GameObject*> m_gameObjects;
 };
 
 class WordCreator : public BaseCreator

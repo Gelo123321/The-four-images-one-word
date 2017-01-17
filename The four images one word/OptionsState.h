@@ -30,7 +30,8 @@ private:
 
 	std::vector<GameObject*> m_gameObjects;
 
-	static void s_optionsToMain();
+	static void s_optionsToMain(int);
+	static void s_setVolumeSFX(int);
 
 	static const std::string s_optionsID;
 };

@@ -27,13 +27,11 @@ private:
 
 	std::vector<GameObject*> m_gameObjects;
 
-	static void s_menuToPlay();
-	static void s_options();
-	static void s_exitFromMenu();
+	static void s_menuToPlay(int);
+	static void s_options(int);
+	static void s_exitFromMenu(int);
 
 	static const std::string s_menuID;
-
-	typedef void(*Callback)();
 
 	std::vector<Callback> m_callbacks;
 };

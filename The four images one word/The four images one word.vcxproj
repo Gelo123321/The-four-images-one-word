@@ -69,8 +69,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\SDL2 Libraries\SDL2_image-2.0.1\include;C:\SDL2 Libraries\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDL2 Libraries\SDL2_image-2.0.1\lib\x86;C:\SDL2 Libraries\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\SDL2 Libraries\SDL2_image-2.0.1\include;C:\SDL2 Libraries\SDL2_mixer-2.0.1\include;C:\SDL2 Libraries\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL2 Libraries\SDL2_mixer-2.0.1\lib\x86;C:\SDL2 Libraries\SDL2_image-2.0.1\lib\x86;C:\SDL2 Libraries\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\SDL2 Libraries\SDL2_image-2.0.1\include;C:\SDL2 Libraries\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
@@ -83,7 +83,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -128,10 +128,12 @@
     <ClInclude Include="AnimatedGraphic.h" />
     <ClInclude Include="CategoryButton.h" />
     <ClInclude Include="CategorySelectionState.h" />
+    <ClInclude Include="ConfigManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjectFactory.h" />
     <ClInclude Include="LevelButton.h" />
     <ClInclude Include="LevelSelectionState.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="WinState.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputHandler.h" />
@@ -157,10 +159,12 @@
     <ClCompile Include="AnimatedGraphic.cpp" />
     <ClCompile Include="CategoryButton.cpp" />
     <ClCompile Include="CategorySelectionState.cpp" />
+    <ClCompile Include="ConfigManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
     <ClCompile Include="LevelButton.cpp" />
     <ClCompile Include="LevelSelectionState.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="WinState.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="LetterButton.cpp" />

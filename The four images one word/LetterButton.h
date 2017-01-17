@@ -29,6 +29,8 @@ public:
 	
 	void setCallback(void(*callback)(std::string)) { m_callback = callback; }
 	int getCallbackID() { return m_callbackID; }
+
+	virtual void setTextureID(std::string textureID) { m_textureID = textureID; }
 private:
 	std::string m_letter;
 

@@ -15,13 +15,20 @@ int main(int argc, char *argv[])
 	AllocConsole();
 	SetConsoleTitle("Debug Console");
 	freopen("CON", "w", stdout);
+
 	Uint32 frameStart, frameTime;
+
+	std::cout << "TheConfigManager init attempt...\n";
+
+	TheConfigManager::Instance()->load();
+	int width = TheConfigManager::Instance()->get("width");
+	int height = TheConfigManager::Instance()->get("height");
+	bool fullscreen = TheConfigManager::Instance()->get("fullscreen");
 
 	std::cout << "TheGame init attempt...\n";
 
-	if (TheGame::Instance()->init("The four images one word", 100, 100, 480, 640, false))
+	if (TheGame::Instance()->init("The four images one word", 100, 100, width, height, fullscreen))
 	{
-		std::cout << "TheGame init success!\n";
 		while (TheGame::Instance()->running())
 		{
 			frameStart = SDL_GetTicks();

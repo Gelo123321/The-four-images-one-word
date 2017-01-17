@@ -8,6 +8,8 @@
 #include "TextureManager.h"
 #include "InputHandler.h"
 #include "StateManager.h"
+#include "SoundManager.h"
+#include "ConfigManager.h"
 
 #include "MainMenuState.h"
 #include "PlayState.h"

@@ -22,7 +22,9 @@ void MenuButton::update()
 		{
 			m_currentFrame = CLICKED;
 
-			m_callback(); // call our callback function
+			TheSoundManager::Instance()->playSFX("click", 1);
+
+			m_callback(m_callbackID); // call our callback function
 
 			m_bReleased = false;
 		}
