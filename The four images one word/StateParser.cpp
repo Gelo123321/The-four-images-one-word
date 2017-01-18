@@ -125,7 +125,7 @@ bool StateParser::setAttribute(const char* stateFile, std::string stateID, std::
 
 	for (TiXmlElement* e = pObjectRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
 	{
-		if (strcmp(e->Attribute("type"), "LevelButton") == 0 &&
+		if (strcmp(e->Attribute("type"), "MenuButton") == 0 &&
 			strcmp(e->Attribute("level"), currentLevel.c_str()) == 0)
 		{
 			e->SetAttribute("textureID", "lvl_open");
@@ -157,7 +157,7 @@ void StateParser::parseObjects(TiXmlElement *pStateRoot, std::vector<GameObject 
 	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
 	{
 		int x, y, width, height, numFrames, callbackID, animSpeed;
-		string textureID, category, level, letter, word;
+		string textureID, letter, word;
 
 		e->Attribute("x", &x);
 		e->Attribute("y", &y);
@@ -168,18 +168,8 @@ void StateParser::parseObjects(TiXmlElement *pStateRoot, std::vector<GameObject 
 		e->Attribute("animSpeed", &animSpeed);
 
 		textureID = e->Attribute("textureID");
-		category = pRoot->Value();
 
-		if (strcmp(e->Attribute("type"), "CategoryButton") == 0)
-		{
-			category = e->Attribute("category");
-		}
-		else if (strcmp(e->Attribute("type"), "LevelButton") == 0)
-		{
-			category = pRoot->Value();
-			level = e->Attribute("level");
-		}
-		else if (strcmp(e->Attribute("type"), "LetterButton") == 0)
+		if (strcmp(e->Attribute("type"), "LetterButton") == 0)
 		{
 			letter = e->Attribute("letter");
 		}
@@ -190,7 +180,7 @@ void StateParser::parseObjects(TiXmlElement *pStateRoot, std::vector<GameObject 
 		
 		//int x, int y, int width, int height, std::string textureID, int numFrames, void()
 		GameObject* pGameObject = TheGameObjectFactory::Instance()->create(e->Attribute("type"));
-		pGameObject->load(new LoaderParams(x, y, width, height, textureID, numFrames, callbackID, animSpeed, category, level, letter, word));
+		pGameObject->load(new LoaderParams(x, y, width, height, textureID, numFrames, callbackID, animSpeed, letter, word));
 		
 		pObjects->push_back(pGameObject);
 	}

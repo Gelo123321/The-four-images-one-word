@@ -66,18 +66,18 @@ void CategorySelectionState::setCallbacks()
 		for (int i = 0; i < m_gameObjects.size(); i++)
 		{
 			// if they are of type MenuButton then assign a callback based on the id passed in from the file
-			if (dynamic_cast<CategoryButton*>(m_gameObjects[i]))
+			if (dynamic_cast<MenuButton*>(m_gameObjects[i]))
 			{
-				CategoryButton* pButton = dynamic_cast<CategoryButton*>(m_gameObjects[i]);
+				MenuButton* pButton = dynamic_cast<MenuButton*>(m_gameObjects[i]);
 				pButton->setCallback(s_selectCategory);
 			}
 		}
 	}
 }
 
-void CategorySelectionState::s_selectCategory(std::string currentCategory)
+void CategorySelectionState::s_selectCategory(int currentCategory)
 {
-	TheGame::Instance()->getStateManager()->changeState(new LevelSelectionState(currentCategory));
+	TheGame::Instance()->getStateManager()->changeState(new LevelSelectionState("category" + to_string(currentCategory)));
 }
 
 

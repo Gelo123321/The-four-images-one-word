@@ -5,6 +5,7 @@
 #include "Game.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const std::string LevelSelectionState::s_levelSelectionID = "LEVELSELECTION";
+std::string LevelSelectionState::m_currentCategory = "";
 
 LevelSelectionState::LevelSelectionState(std::string currentCategory)
 {
@@ -72,18 +73,18 @@ void LevelSelectionState::setCallbacks()
 		for (int i = 0; i < m_gameObjects.size(); i++)
 		{
 			// if they are of type MenuButton then assign a callback based on the id passed in from the file
-			if (dynamic_cast<LevelButton*>(m_gameObjects[i]))
+			if (dynamic_cast<MenuButton*>(m_gameObjects[i]))
 			{
-				LevelButton* pButton = dynamic_cast<LevelButton*>(m_gameObjects[i]);
+				MenuButton* pButton = dynamic_cast<MenuButton*>(m_gameObjects[i]);
 				pButton->setCallback(s_selectLevel);
 			}
 		}
 	}
 }
 
-void LevelSelectionState::s_selectLevel(std::string currentCategory, std::string currentLevel)
+void LevelSelectionState::s_selectLevel(int currentLevel)
 {
-	TheGame::Instance()->getStateManager()->changeState(new PlayState(currentCategory, currentLevel));
+	TheGame::Instance()->getStateManager()->changeState(new PlayState(m_currentCategory, "lvl" + to_string(currentLevel)));
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

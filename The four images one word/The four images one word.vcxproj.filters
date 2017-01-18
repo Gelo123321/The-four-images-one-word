@@ -114,14 +114,8 @@
     <ClInclude Include="LoaderParams.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="CategoryButton.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="LetterButton.h">
       <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundManager.h">
-      <Filter>Header Files\Managers</Filter>
     </ClInclude>
     <ClInclude Include="MenuButton.h">
       <Filter>Header Files\Buttons</Filter>
@@ -131,6 +125,9 @@
     </ClInclude>
     <ClInclude Include="ConfigManager.h">
       <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -194,14 +191,8 @@
     <ClCompile Include="LevelSelectionState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
-    <ClCompile Include="LevelButton.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="StateParser.cpp">
       <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="CategoryButton.cpp">
-      <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="LetterButton.cpp">
       <Filter>Source Files\Game</Filter>

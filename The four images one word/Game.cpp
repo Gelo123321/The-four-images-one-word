@@ -85,8 +85,6 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, b
 	TheGameObjectFactory::Instance()->registerType("MenuButton", new MenuButtonCreator());
 	TheGameObjectFactory::Instance()->registerType("AnimatedGraphic", new AnimatedGraphicCreator());
 	TheGameObjectFactory::Instance()->registerType("LetterButton", new LetterButtonCreator());
-	TheGameObjectFactory::Instance()->registerType("LevelButton", new LevelButtonCreator());
-	TheGameObjectFactory::Instance()->registerType("CategoryButton", new CategoryButtonCreator());
 	TheGameObjectFactory::Instance()->registerType("Word", new WordCreator());
 
 	TheSoundManager::Instance()->load("resources//SFX//click.wav", "click", SOUND_SFX); // TODO move to better place ?

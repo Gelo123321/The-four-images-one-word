@@ -68,10 +68,10 @@
         </TEXTURES>
         
         <OBJECTS>
-            <object type="CategoryButton" x="22" y="22" width="196" height="32" textureID="cat1" category="all"/>
-            <object type="CategoryButton" x="262" y="22" width="196" height="32" textureID="cat2" category="all"/>
-            <object type="CategoryButton" x="22" y="70" width="196" height="32" textureID="cat3" category="all"/>
-            <object type="CategoryButton" x="262" y="70" width="196" height="32" textureID="cat4" category="all"/>
+            <object type="MenuButton" x="22" y="22" width="196" height="32" textureID="cat1" numFrames="0" callbackID="1"/>
+            <object type="MenuButton" x="262" y="22" width="196" height="32" textureID="cat2" numFrames="0" callbackID="2"/>
+            <object type="MenuButton" x="22" y="70" width="196" height="32" textureID="cat3" numFrames="0" callbackID="3"/>
+            <object type="MenuButton" x="262" y="70" width="196" height="32" textureID="cat4" numFrames="0" callbackID="4"/>
         </OBJECTS>
     </CATEGORYSELECTION>
 </States>

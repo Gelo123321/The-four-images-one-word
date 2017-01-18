@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<all>
+    <LEVELSELECTION>
+        <TEXTURES>
+            <texture filename="resources/img/lvl_open.png" ID="lvl_open" />
+            <texture filename="resources/img/lvl_lock.png" ID="lvl_lock" />
+        </TEXTURES>
+        <OBJECTS>
+            <object type="MenuButton" x="44" y="44" width="32" height="32" textureID="lvl_open" numFrames="0" callbackID="1" />
+            <object type="MenuButton" x="84" y="44" width="32" height="32" textureID="lvl_open" numFrames="0" callbackID="2" />
+            <object type="MenuButton" x="124" y="44" width="32" height="32" textureID="lvl_open" numFrames="0" callbackID="3" />
+            <object type="MenuButton" x="164" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="4" />
+            <object type="MenuButton" x="204" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="5" />
+            <object type="MenuButton" x="244" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="6" />
+            <object type="MenuButton" x="284" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="7" />
+            <object type="MenuButton" x="324" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="8" />
+            <object type="MenuButton" x="364" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="9" />
+            <object type="MenuButton" x="404" y="44" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="10" />
+            <object type="MenuButton" x="44" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="11" />
+            <object type="MenuButton" x="84" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="12" />
+            <object type="MenuButton" x="124" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="13" />
+            <object type="MenuButton" x="164" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="14" />
+            <object type="MenuButton" x="204" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="15" />
+            <object type="MenuButton" x="244" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="16" />
+            <object type="MenuButton" x="284" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="17" />
+            <object type="MenuButton" x="324" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="18" />
+            <object type="MenuButton" x="364" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="19" />
+            <object type="MenuButton" x="404" y="84" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="20" />
+            <object type="MenuButton" x="44" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="21" />
+            <object type="MenuButton" x="84" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="22" />
+            <object type="MenuButton" x="124" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="23" />
+            <object type="MenuButton" x="164" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="24" />
+            <object type="MenuButton" x="204" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="25" />
+            <object type="MenuButton" x="244" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="26" />
+            <object type="MenuButton" x="284" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="27" />
+            <object type="MenuButton" x="324" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="28" />
+            <object type="MenuButton" x="364" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="29" />
+            <object type="MenuButton" x="404" y="124" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="30" />
+            <object type="MenuButton" x="44" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="31" />
+            <object type="MenuButton" x="84" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="32" />
+            <object type="MenuButton" x="124" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="33" />
+            <object type="MenuButton" x="164" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="34" />
+            <object type="MenuButton" x="204" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="35" />
+            <object type="MenuButton" x="244" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="36" />
+            <object type="MenuButton" x="284" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="37" />
+            <object type="MenuButton" x="324" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="38" />
+            <object type="MenuButton" x="364" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="39" />
+            <object type="MenuButton" x="404" y="164" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="40" />
+            <object type="MenuButton" x="44" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="41" />
+            <object type="MenuButton" x="84" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="42" />
+            <object type="MenuButton" x="124" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="43" />
+            <object type="MenuButton" x="164" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="44" />
+            <object type="MenuButton" x="204" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="45" />
+            <object type="MenuButton" x="244" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="46" />
+            <object type="MenuButton" x="284" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="47" />
+            <object type="MenuButton" x="324" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="48" />
+            <object type="MenuButton" x="364" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="49" />
+            <object type="MenuButton" x="404" y="204" width="32" height="32" textureID="lvl_lock" numFrames="0" callbackID="50" />
+        </OBJECTS>
+    </LEVELSELECTION>
+    <lvl1>
+        <TEXTURES>
+            <texture filename="resources/category/category1/0.png" ID="img0" />
+            <texture filename="resources/category/category1/1.png" ID="img1" />
+            <texture filename="resources/category/category1/2.png" ID="img2" />
+            <texture filename="resources/category/category1/3.png" ID="img3" />
+            <texture filename="resources/category/category1/4.png" ID="img4" />
+            <texture filename="resources/img/letters/А.png" ID="А" />
+            <texture filename="resources/img/letters/Б.png" ID="Б" />
+            <texture filename="resources/img/letters/В.png" ID="В" />
+            <texture filename="resources/img/letters/Д.png" ID="Д" />
+            <texture filename="resources/img/letters/Е.png" ID="Е" />
+            <texture filename="resources/img/letters/И.png" ID="И" />
+            <texture filename="resources/img/letters/І.png" ID="І" />
+            <texture filename="resources/img/letters/К.png" ID="К" />
+            <texture filename="resources/img/letters/О.png" ID="О" />
+            <texture filename="resources/img/letters/Р.png" ID="Р" />
+        </TEXTURES>
+        <OBJECTS>
+            <object type="AnimatedGraphic" x="96" y="176" width="128" height="128" textureID="img1" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="256" y="176" width="128" height="128" textureID="img2" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="96" y="336" width="128" height="128" textureID="img3" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="256" y="336" width="128" height="128" textureID="img4" numFrames="1" animSpeed="1" />
+            <object type="LetterButton" x="84" y="496" width="32" height="32" textureID="А" numFrames="0" letter="A" />
+            <object type="LetterButton" x="124" y="496" width="32" height="32" textureID="Д" numFrames="0" letter="Д" />
+            <object type="LetterButton" x="164" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="204" y="496" width="32" height="32" textureID="О" numFrames="0" letter="О" />
+            <object type="LetterButton" x="244" y="496" width="32" height="32" textureID="Б" numFrames="0" letter="Б" />
+            <object type="LetterButton" x="284" y="496" width="32" height="32" textureID="Е" numFrames="0" letter="Е" />
+            <object type="LetterButton" x="324" y="496" width="32" height="32" textureID="О" numFrames="0" letter="О" />
+            <object type="LetterButton" x="364" y="496" width="32" height="32" textureID="К" numFrames="0" letter="К" />
+            <object type="LetterButton" x="84" y="536" width="32" height="32" textureID="В" numFrames="0" letter="В" />
+            <object type="LetterButton" x="124" y="536" width="32" height="32" textureID="В" numFrames="0" letter="В" />
+            <object type="LetterButton" x="164" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="204" y="536" width="32" height="32" textureID="Р" numFrames="0" letter="Р" />
+            <object type="LetterButton" x="244" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="284" y="536" width="32" height="32" textureID="К" numFrames="0" letter="К" />
+            <object type="LetterButton" x="324" y="536" width="32" height="32" textureID="И" numFrames="0" letter="И" />
+            <object type="LetterButton" x="364" y="536" width="32" height="32" textureID="І" numFrames="0" letter="І" />
+            <object type="Word" x="0" y="0" width="480" height="32" textureID="А" numFrames="0" word="ДЕРЕВО" />
+        </OBJECTS>
+    </lvl1>
+    <lvl2>
+        <TEXTURES>
+            <texture filename="resources/category/category1/0.png" ID="img0" />
+            <texture filename="resources/category/category1/5.png" ID="img1" />
+            <texture filename="resources/category/category1/6.png" ID="img2" />
+            <texture filename="resources/category/category1/7.png" ID="img3" />
+            <texture filename="resources/category/category1/8.png" ID="img4" />
+            <texture filename="resources/img/letters/А.png" ID="А" />
+            <texture filename="resources/img/letters/Б.png" ID="Б" />
+            <texture filename="resources/img/letters/В.png" ID="В" />
+            <texture filename="resources/img/letters/Д.png" ID="Д" />
+            <texture filename="resources/img/letters/Е.png" ID="Е" />
+            <texture filename="resources/img/letters/И.png" ID="И" />
+            <texture filename="resources/img/letters/І.png" ID="І" />
+            <texture filename="resources/img/letters/К.png" ID="К" />
+            <texture filename="resources/img/letters/О.png" ID="О" />
+            <texture filename="resources/img/letters/Р.png" ID="Р" />
+        </TEXTURES>
+        <OBJECTS>
+            <object type="AnimatedGraphic" x="96" y="176" width="128" height="128" textureID="img1" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="256" y="176" width="128" height="128" textureID="img2" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="96" y="336" width="128" height="128" textureID="img3" numFrames="1" animSpeed="1" />
+            <object type="AnimatedGraphic" x="256" y="336" width="128" height="128" textureID="img4" numFrames="1" animSpeed="1" />
+            <object type="LetterButton" x="84" y="496" width="32" height="32" textureID="А" numFrames="0" letter="A" />
+            <object type="LetterButton" x="124" y="496" width="32" height="32" textureID="Д" numFrames="0" letter="Д" />
+            <object type="LetterButton" x="164" y="496" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="204" y="496" width="32" height="32" textureID="О" numFrames="0" letter="О" />
+            <object type="LetterButton" x="244" y="496" width="32" height="32" textureID="Б" numFrames="0" letter="Б" />
+            <object type="LetterButton" x="284" y="496" width="32" height="32" textureID="Е" numFrames="0" letter="Е" />
+            <object type="LetterButton" x="324" y="496" width="32" height="32" textureID="О" numFrames="0" letter="О" />
+            <object type="LetterButton" x="364" y="496" width="32" height="32" textureID="К" numFrames="0" letter="К" />
+            <object type="LetterButton" x="84" y="536" width="32" height="32" textureID="В" numFrames="0" letter="В" />
+            <object type="LetterButton" x="124" y="536" width="32" height="32" textureID="В" numFrames="0" letter="В" />
+            <object type="LetterButton" x="164" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="204" y="536" width="32" height="32" textureID="Р" numFrames="0" letter="Р" />
+            <object type="LetterButton" x="244" y="536" width="32" height="32" textureID="А" numFrames="0" letter="А" />
+            <object type="LetterButton" x="284" y="536" width="32" height="32" textureID="К" numFrames="0" letter="К" />
+            <object type="LetterButton" x="324" y="536" width="32" height="32" textureID="И" numFrames="0" letter="И" />
+            <object type="LetterButton" x="364" y="536" width="32" height="32" textureID="І" numFrames="0" letter="І" />
+            <object type="Word" x="0" y="0" width="480" height="32" textureID="А" numFrames="0" word="ВИВІРКА" />
+        </OBJECTS>
+    </lvl2>
+</all>

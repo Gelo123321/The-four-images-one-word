@@ -35,15 +35,10 @@ void PlayState::render()
 
 bool PlayState::onEnter()
 {
-	if (strcmp(m_currentLevel.c_str(), "lvl2") == 0)
-	{
-		StateParser levelParser;
-	}
 	// parse the lavel  
 	StateParser levelParser;
-	std::string ID = "lvl" + m_currentLevel;
 	std::string path = "resources\\category\\" + m_currentCategory + ".xml";
-	levelParser.parseState(path.c_str(), ID, &m_gameObjects, &m_textureIDList);
+	levelParser.parseState(path.c_str(), m_currentLevel, &m_gameObjects, &m_textureIDList);
 
 	Word::setCategory(m_currentCategory);
 	Word::setLevel(m_currentLevel);

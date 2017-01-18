@@ -83,6 +83,7 @@ void ConfigManager::set(const std::string key, int value)
 	if (it == m_config.end()) 
 	{
 		m_config.insert(std::pair<std::string, int>(key, value));
+		return;
 	}
 
 	it->second = value;

@@ -104,7 +104,7 @@ void Word::createLetters()
 	for (int i = 0; i < m_word.length() / 2; i++)
 	{
 		GameObject* pGameObject = TheGameObjectFactory::Instance()->create("LetterButton");
-		pGameObject->load(new LoaderParams(posX + (i * 32), posY, 32, 32, "img0", 0, i + 1, 0, "", "", "", ""));
+		pGameObject->load(new LoaderParams(posX + (i * 32), posY, 32, 32, "img0", 0, i + 1, 0, "", ""));
 
 		m_gameObjects.push_back(pGameObject);
 		//m_currentWord += '0';

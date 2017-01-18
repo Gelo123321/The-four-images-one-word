@@ -126,7 +126,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedGraphic.h" />
-    <ClInclude Include="CategoryButton.h" />
     <ClInclude Include="CategorySelectionState.h" />
     <ClInclude Include="ConfigManager.h" />
     <ClInclude Include="Game.h" />
@@ -157,12 +156,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedGraphic.cpp" />
-    <ClCompile Include="CategoryButton.cpp" />
     <ClCompile Include="CategorySelectionState.cpp" />
     <ClCompile Include="ConfigManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
-    <ClCompile Include="LevelButton.cpp" />
     <ClCompile Include="LevelSelectionState.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="WinState.cpp" />

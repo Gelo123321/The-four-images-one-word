@@ -15,12 +15,12 @@
 #include <vector>
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class LevelButton : public SDLGameObject
+class MenuButton : public SDLGameObject
 {
 public:
-	LevelButton();
+	MenuButton();
 
-	void LevelButton::load(const LoaderParams *pParams);
+	void MenuButton::load(const LoaderParams *pParams);
 
 	virtual void draw();
 	virtual void update();
@@ -53,7 +53,7 @@ class LevelButtonCreator : public BaseCreator
 {
 	GameObject* createGameObject() const
 	{
-		return new LevelButton();
+		return new MenuButton();
 	}
 };
 #endif

@@ -16,8 +16,7 @@
 
 #include "Player.h"
 #include "Word.h"
-#include "LevelButton.h"
-#include "CategoryButton.h"
+#include "MenuButton.h"
 #include "LetterButton.h"
 
 #include <SDL.h>

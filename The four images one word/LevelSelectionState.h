@@ -27,13 +27,13 @@ private:
 
 	void setCallbacks();
 
-	std::string m_currentCategory;
+	static std::string m_currentCategory;
 
 	std::vector<GameObject*> m_gameObjects;
 
 	static const std::string s_levelSelectionID;
 
-	static void s_selectLevel(std::string, std::string);
+	static void s_selectLevel(int currentLevel);
 
 };
 #endif

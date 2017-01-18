@@ -27,7 +27,7 @@ private:
 
 	std::vector<GameObject*> m_gameObjects;
 
-	static void s_selectCategory(std::string);
+	static void s_selectCategory(int currentCategory);
 
 	static const std::string s_categorySelectionID;
 
