@@ -126,7 +126,7 @@ bool StateParser::setAttribute(const char* stateFile, std::string stateID, std::
 	for (TiXmlElement* e = pObjectRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
 	{
 		if (strcmp(e->Attribute("type"), "MenuButton") == 0 &&
-			strcmp(e->Attribute("level"), currentLevel.c_str()) == 0)
+			strcmp(e->Attribute("callbackID"), currentLevel.c_str()) == 0)
 		{
 			e->SetAttribute("textureID", "lvl_open");
 			continue;
@@ -157,7 +157,7 @@ void StateParser::parseObjects(TiXmlElement *pStateRoot, std::vector<GameObject 
 	for (TiXmlElement* e = pStateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
 	{
 		int x, y, width, height, numFrames, callbackID, animSpeed;
-		string textureID, letter, word;
+		string textureID, letter, word = "";
 
 		e->Attribute("x", &x);
 		e->Attribute("y", &y);

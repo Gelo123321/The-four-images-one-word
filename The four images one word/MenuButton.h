@@ -28,7 +28,7 @@ public:
 
 	void setCallback(void(*callback)(int)) { m_callback = callback; }
 	int getCallbackID() { return m_callbackID; }
-protected:
+private:
 	enum button_state
 	{
 		MOUSE_OUT = 0,

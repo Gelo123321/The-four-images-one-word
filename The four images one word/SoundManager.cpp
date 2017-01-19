@@ -61,8 +61,17 @@ void SoundManager::playMusic(std::string id, int loop)
 
 void SoundManager::setVolumeSFX(int volume)
 {
+	m_volumeSFX = volume;
+
 	for (std::map<std::string, Mix_Chunk*>::iterator it = m_sfxs.begin(); it != m_sfxs.end(); ++it)
 	{
-		Mix_VolumeChunk(it->second, volume);
+		Mix_VolumeChunk(it->second, m_volumeSFX);
 	}
+}
+
+void SoundManager::setVolumeMusic(int volume)
+{
+	m_volumeMusic = volume;
+
+	Mix_VolumeMusic(m_volumeMusic);
 }

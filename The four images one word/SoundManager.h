@@ -42,12 +42,18 @@ public:
 	void setVolumeSFX(int volume);
 	void setVolumeMusic(int volume);
 
+	int getVolumeSFX() { return m_volumeSFX; }
+	int getVolumeMusic() { return m_volumeMusic; }
+
 private:
 
 	static SoundManager* s_pInstance;
 
 	std::map<std::string, Mix_Chunk*> m_sfxs;
 	std::map<std::string, Mix_Music*> m_music;
+
+	int m_volumeSFX;
+	int m_volumeMusic;
 
 	SoundManager();
 	~SoundManager();

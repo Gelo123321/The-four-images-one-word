@@ -86,10 +86,18 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, b
 	TheGameObjectFactory::Instance()->registerType("AnimatedGraphic", new AnimatedGraphicCreator());
 	TheGameObjectFactory::Instance()->registerType("LetterButton", new LetterButtonCreator());
 	TheGameObjectFactory::Instance()->registerType("Word", new WordCreator());
+	TheGameObjectFactory::Instance()->registerType("ScrollBar", new ScrollBarCreator());
 
 	TheSoundManager::Instance()->load("resources//SFX//click.wav", "click", SOUND_SFX); // TODO move to better place ?
+	TheSoundManager::Instance()->load("resources//music//background.mp3", "background", SOUND_MUSIC);
+	int SFX_volume = TheConfigManager::Instance()->get("SFX_volume");
+	int music_volume = TheConfigManager::Instance()->get("music_volume");
+	TheSoundManager::Instance()->setVolumeSFX(SFX_volume);
+	TheSoundManager::Instance()->setVolumeMusic(music_volume);
 
 	std::cout << "TheGame::init success!\n";
+
+	TheSoundManager::Instance()->playMusic("background", 1);
 	
 	m_pStateManager = new StateManager();
 	m_pStateManager->changeState(new MainMenuState());

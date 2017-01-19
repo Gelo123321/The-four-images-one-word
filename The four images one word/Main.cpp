@@ -51,6 +51,8 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
+	TheConfigManager::Instance()->save();
+
 	std::cout << "TheGame closing...\n";
 	TheGame::Instance()->clean();
 

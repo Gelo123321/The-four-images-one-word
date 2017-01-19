@@ -19,17 +19,17 @@
     <OPTIONS>
         <TEXTURES>
             <texture filename="resources/img/main.png" ID="mainbutton"/>
-            <texture filename="resources/img/lvl_open.png" ID="volumebutton"/>
+            <texture filename="resources/img/scroll_bar.png" ID="scrollbar"/>
+            <texture filename="resources/img/SFX_HUD.png" ID="SFX_HUD"/>
+            <texture filename="resources/img/music_HUD.png" ID="music_HUD"/>
         </TEXTURES>
         
         <OBJECTS>
-            <object type="MenuButton" x="128" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="1"/>
-            <object type="MenuButton" x="168" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="2"/>
-            <object type="MenuButton" x="208" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="3"/>
-            <object type="MenuButton" x="248" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="4"/>
-            <object type="MenuButton" x="288" y="264" width="32" height="32" textureID="volumebutton" numFrames="0" callbackID="5"/>
-          
-            <object type="MenuButton" x="176" y="304" width="128" height="32" textureID="mainbutton" numFrames="0" callbackID="6"/>
+            <object type="MenuButton" x="176" y="464" width="128" height="32" textureID="mainbutton" numFrames="0" callbackID="1"/>
+            <object type="ScrollBar" x="112" y="264" width="256" height="32" textureID="scrollbar" numFrames="8" callbackID="2"/>
+            <object type="ScrollBar" x="112" y="200" width="256" height="32" textureID="scrollbar" numFrames="8" callbackID="3"/>
+            <object type="MenuButton" x="96" y="232" width="288" height="72" textureID="SFX_HUD" numFrames="3" callbackID="4"/>
+            <object type="MenuButton" x="96" y="168" width="288" height="72" textureID="music_HUD" numFrames="3" callbackID="4"/>
         </OBJECTS>
     </OPTIONS>
     

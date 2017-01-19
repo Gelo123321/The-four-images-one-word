@@ -32,6 +32,8 @@ private:
 
 	static void s_optionsToMain(int);
 	static void s_setVolumeSFX(int);
+	static void s_setVolumeMusic(int);
+	static void s_empty(int);
 
 	static const std::string s_optionsID;
 };

@@ -129,6 +129,9 @@
     <ClInclude Include="SoundManager.h">
       <Filter>Header Files\States</Filter>
     </ClInclude>
+    <ClInclude Include="ScrollBar.h">
+      <Filter>Header Files\Buttons</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedGraphic.cpp">
@@ -208,6 +211,9 @@
     </ClCompile>
     <ClCompile Include="ConfigManager.cpp">
       <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollBar.cpp">
+      <Filter>Source Files\Buttons</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

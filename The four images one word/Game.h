@@ -18,6 +18,7 @@
 #include "Word.h"
 #include "MenuButton.h"
 #include "LetterButton.h"
+#include "ScrollBar.h"
 
 #include <SDL.h>
 

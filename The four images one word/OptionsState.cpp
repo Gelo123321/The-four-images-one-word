@@ -28,12 +28,10 @@ bool OptionsState::onEnter()
 	stateParser.parseState("states.xml", s_optionsID, &m_gameObjects, &m_textureIDList);
 
 	m_callbacks.push_back(0);
-	for (int i = 1; i < 6; i++)
-	{
-		m_callbacks.push_back(s_setVolumeSFX);
-	}
 	m_callbacks.push_back(s_optionsToMain);
-
+	m_callbacks.push_back(s_setVolumeSFX);
+	m_callbacks.push_back(s_setVolumeMusic);
+	m_callbacks.push_back(s_empty);
 
 	setCallbacks(m_callbacks);
 
@@ -73,6 +71,21 @@ void OptionsState::setCallbacks(const std::vector<Callback>& callbacks)
 				MenuButton* pButton = dynamic_cast<MenuButton*>(m_gameObjects[i]);
 				pButton->setCallback(callbacks[pButton->getCallbackID()]);
 			}
+			else if (dynamic_cast<ScrollBar*>(m_gameObjects[i]))
+			{
+				ScrollBar* pButton = dynamic_cast<ScrollBar*>(m_gameObjects[i]);
+				pButton->setCallback(callbacks[pButton->getCallbackID()]);
+				if (pButton->getCallbackID() == 2)
+				{
+					int SFX_volume = TheSoundManager::Instance()->getVolumeSFX();
+					pButton->setValue(SFX_volume / 4);
+				}
+				else if (pButton->getCallbackID() == 3)
+				{
+					int music_volume = TheSoundManager::Instance()->getVolumeMusic();
+					pButton->setValue(music_volume / 4);
+				}
+			}
 		}
 	}
 }
@@ -82,29 +95,21 @@ void OptionsState::s_optionsToMain(int callbackID)
 	TheGame::Instance()->getStateManager()->changeState(new MainMenuState());
 }
 
-void OptionsState::s_setVolumeSFX(int callbackID)
+void OptionsState::s_setVolumeSFX(int volume)
 {
-	int volume = 0;
-	switch (callbackID)
-	{
-	case 1:
-		volume = 0;
-		break;
-	case 2:
-		volume = 32;
-		break;
-	case 3:
-		volume = 64;
-		break;
-	case 4:
-		volume = 96;
-		break;
-	case 5:
-		volume = 128;
-		break;
-	}
-	
-	TheSoundManager::Instance()->setVolumeSFX(volume);
+	TheSoundManager::Instance()->setVolumeSFX(volume * 4);
+	TheConfigManager::Instance()->set("SFX_volume", volume * 4);
+}
+
+void OptionsState::s_setVolumeMusic(int volume)
+{
+	TheSoundManager::Instance()->setVolumeMusic(volume * 4);
+	TheConfigManager::Instance()->set("music_volume", volume * 4);
+}
+
+void OptionsState::s_empty(int callbackID)
+{
+	//
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
